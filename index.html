@@ -32,22 +32,24 @@
 
   <style>
     :root {
-      --bg: #f3f4f8;
-      --bg-soft: #eef1f7;
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-strong: #1d4ed8;
-      --accent-border: rgba(37, 99, 235, 0.2);
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --border-subtle: #e2e5ee;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-md: 12px;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --card-bg: #020617;
+      --accent: #3B82F6;
+      --accent-2: #A855F7;
+      --accent-soft: rgba(59, 130, 246, 0.14);
+      --accent-border: rgba(59, 130, 246, 0.55);
+      --accent-strong: #2563EB;
+      --text-main: #0F172A;
+      --text-on-dark: #E5F0FF;
+      --text-muted: #6B7280;
+      --border-subtle: #E2E5EE;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.4);
+      --radius-lg: 22px;
+      --radius-md: 14px;
       --radius-pill: 999px;
-      --error: #b91c1c;
-      --success: #166534;
+      --error: #F97373;
+      --success: #22C55E;
       --transition-fast: 0.16s ease-out;
     }
 
@@ -58,7 +60,11 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #e5e7f0 100%);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.24) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.25) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(52, 211, 153, 0.12) 0, transparent 65%),
+        var(--bg-alt);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -70,10 +76,21 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
+      padding: 22px 16px 40px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+    }
+
+    /* Soft glass frame */
+    .frame {
+      border-radius: 30px;
+      padding: 18px 18px 22px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.85));
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(22px);
     }
 
     header {
@@ -81,7 +98,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 28px;
+      margin-bottom: 18px;
     }
 
     .brand {
@@ -92,13 +109,13 @@
 
     .brand-logo {
       display: block;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18));
+      height: 44px;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.4));
     }
 
     @media (min-width: 800px) {
       .brand-logo {
-        height: 44px;
+        height: 48px;
       }
     }
 
@@ -113,20 +130,21 @@
 
     .nav a {
       text-decoration: none;
-      color: var(--text-muted);
-      padding: 6px 10px;
+      color: rgba(226, 232, 240, 0.9);
+      padding: 6px 11px;
       border-radius: var(--radius-pill);
-      transition: background var(--transition-fast), color var(--transition-fast);
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
 
     .nav a:hover {
-      background: var(--accent-soft);
-      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+      color: #E5F0FF;
+      transform: translateY(-1px);
     }
 
     .nav-highlight {
-      border: 1px solid var(--accent-border);
-      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.32), rgba(15, 23, 42, 0.95));
     }
 
     main {
@@ -135,23 +153,37 @@
 
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
       gap: 20px;
       align-items: flex-start;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 880px) {
       .layout {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
+    /* HERO SIDE -------------------------------------------------- */
+
     .hero-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,244,255,0.95));
-      border-radius: 24px;
-      padding: 22px 22px 22px;
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 18px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 60%),
+                  radial-gradient(circle at top right, rgba(168, 85, 247, 0.28), transparent 55%),
+                  linear-gradient(135deg, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.35);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255,255,255,0.9);
+      overflow: hidden;
+    }
+
+    .hero-top-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
     }
 
     .hero-eyebrow {
@@ -160,42 +192,70 @@
       gap: 8px;
       padding: 4px 12px;
       border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.84);
+      color: rgba(226, 232, 240, 0.96);
       font-size: 11px;
       font-weight: 500;
-      border: 1px solid var(--accent-border);
-      margin-bottom: 10px;
+      border: 1px solid rgba(96, 165, 250, 0.7);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
     }
 
     .hero-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+      background: #22C55E;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+    }
+
+    .hero-pill-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(226, 232, 240, 0.9);
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .metric-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #38BDF8, #8B5CF6);
     }
 
     .hero-title {
       font-size: clamp(26px, 3vw, 32px);
       line-height: 1.1;
-      margin: 0 0 8px;
+      margin: 4px 0 6px;
       letter-spacing: -0.02em;
+      color: #F9FAFB;
     }
 
     .hero-title span {
-      color: var(--accent-strong);
+      background: linear-gradient(135deg, #38BDF8, #A855F7);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 14px;
-      color: var(--text-muted);
+      color: rgba(226, 232, 240, 0.9);
       max-width: 520px;
     }
 
     .hero-subtitle strong {
-      color: var(--text-main);
+      color: #FFFFFF;
       font-weight: 600;
     }
 
@@ -203,16 +263,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 0 0 14px;
+      margin: 0 0 12px;
     }
 
     .hero-pill {
       font-size: 11px;
-      color: var(--text-muted);
       padding: 4px 10px;
       border-radius: var(--radius-pill);
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: rgba(226, 232, 240, 0.9);
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -222,15 +282,18 @@
       width: 4px;
       height: 4px;
       border-radius: 999px;
-      background: var(--accent-strong);
+      background: #A855F7;
     }
 
+    /* FORM -------------------------------------------------------- */
+
     .form-card {
-      margin-top: 10px;
+      margin-top: 8px;
       padding: 16px 14px 14px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.93);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
     }
 
     .form-grid {
@@ -254,12 +317,12 @@
     label {
       font-size: 13px;
       font-weight: 500;
-      color: #111827;
+      color: #E5E7EB;
     }
 
     .field-help {
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.9);
     }
 
     select,
@@ -267,20 +330,21 @@
       width: 100%;
       padding: 8px 10px;
       border-radius: 9px;
-      border: 1px solid #d3d7e3;
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       font-family: inherit;
       font-size: 13px;
-      color: var(--text-main);
+      color: #E5E7EB;
       outline: none;
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
     }
 
     select:focus,
     textarea:focus {
-      border-color: var(--accent-strong);
-      box-shadow: 0 0 0 1px rgba(37,99,235,0.35);
-      background: #ffffff;
+      border-color: #60A5FA;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-0.5px);
     }
 
     textarea {
@@ -296,26 +360,29 @@
 
     .chip {
       font-size: 11px;
-      padding: 4px 9px;
+      padding: 5px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid #d7dcea;
-      background: #f9fafb;
-      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: rgba(209, 213, 219, 0.95);
       cursor: pointer;
-      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      transition: background var(--transition-fast), color var(--transition-fast),
+                  border-color var(--transition-fast), transform var(--transition-fast),
+                  box-shadow var(--transition-fast);
     }
 
     .chip:hover {
-      border-color: var(--accent-strong);
-      color: var(--accent-strong);
+      border-color: #60A5FA;
+      color: #F9FAFB;
       transform: translateY(-1px);
-      background: #ffffff;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.8);
     }
 
     .chip.chip-active {
-      background: var(--accent-soft);
-      border-color: var(--accent-strong);
-      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.5), rgba(129, 140, 248, 0.6));
+      border-color: rgba(129, 140, 248, 0.9);
+      color: #F9FAFB;
+      box-shadow: 0 10px 26px rgba(56, 189, 248, 0.5);
     }
 
     .form-footer {
@@ -331,26 +398,26 @@
       border: none;
       border-radius: var(--radius-pill);
       padding: 9px 18px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #ffffff;
+      background: linear-gradient(135deg, #38BDF8, #3B82F6, #A855F7);
+      color: #F9FAFB;
       font-weight: 600;
       font-size: 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 16px 38px rgba(56, 189, 248, 0.7);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     }
 
     .primary-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 38px rgba(37, 99, 235, 0.4);
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 50px rgba(59, 130, 246, 0.8);
     }
 
     .primary-btn:active {
       transform: translateY(0);
-      box-shadow: 0 10px 24px rgba(37,99,235,0.35);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.7);
     }
 
     .primary-btn:disabled {
@@ -362,7 +429,7 @@
 
     .form-subcopy {
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
     }
 
     #form-message {
@@ -381,36 +448,38 @@
     }
 
     .preview-card {
-      margin-top: 14px;
+      margin-top: 12px;
       border-radius: var(--radius-md);
-      border: 1px dashed var(--border-subtle);
-      background: #f9fafb;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.85);
       padding: 10px 11px 9px;
       font-size: 12px;
-      color: var(--text-muted);
+      color: rgba(209, 213, 219, 0.96);
     }
 
     .preview-title {
       font-weight: 550;
       font-size: 13px;
       margin-bottom: 4px;
-      color: var(--text-main);
+      color: #E5E7EB;
     }
 
     .preview-meta {
       font-size: 11px;
       margin-bottom: 6px;
+      color: rgba(148, 163, 184, 0.95);
     }
 
     .preview-meta span + span::before {
       content: "•";
       margin: 0 5px;
-      color: #cbd0dd;
+      color: rgba(75, 85, 99, 0.7);
     }
 
     .preview-note {
       margin-top: 6px;
       font-size: 10px;
+      color: rgba(148, 163, 184, 0.9);
     }
 
     .preview-link {
@@ -421,10 +490,12 @@
       text-decoration: none;
       padding: 4px 8px;
       border-radius: var(--radius-pill);
-      border: 1px solid #d7dcea;
-      color: var(--accent-strong);
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #A5B4FC;
+      background: rgba(15, 23, 42, 0.9);
     }
+
+    /* RESULTS SIDE ----------------------------------------------- */
 
     .results-shell {
       display: flex;
@@ -434,10 +505,28 @@
 
     .results-card {
       padding: 16px 16px 14px;
-      border-radius: 18px;
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%),
+                  radial-gradient(circle at top right, rgba(168, 85, 247, 0.22), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.7);
       box-shadow: var(--shadow-soft);
+      color: #E5E7EB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .results-strip {
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(129, 140, 248, 0.18));
+      pointer-events: none;
+    }
+
+    .results-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .results-header {
@@ -452,17 +541,18 @@
     .results-title {
       font-size: 14px;
       font-weight: 600;
+      color: #F9FAFB;
     }
 
     .results-status {
       font-size: 12px;
-      color: var(--text-muted);
+      color: rgba(209, 213, 219, 0.96);
     }
 
     .results-hint {
       font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      color: rgba(148, 163, 184, 0.96);
+      margin-bottom: 8px;
     }
 
     .gift-grid {
@@ -475,8 +565,8 @@
     .gift-card {
       padding: 10px 10px 9px;
       border-radius: var(--radius-md);
-      border: 1px solid #e1e4ef;
-      background: #f9fafb;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -485,21 +575,22 @@
     .gift-title {
       font-size: 13px;
       font-weight: 600;
+      color: #F9FAFB;
     }
 
     .gift-price {
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(156, 163, 175, 0.95);
     }
 
     .gift-desc {
       font-size: 12px;
-      color: #374151;
+      color: rgba(209, 213, 219, 0.96);
     }
 
     .gift-why {
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(156, 163, 175, 0.98);
     }
 
     .gift-tags {
@@ -513,9 +604,9 @@
       font-size: 10px;
       padding: 3px 7px;
       border-radius: var(--radius-pill);
-      border: 1px solid #dde2f0;
-      background: #ffffff;
-      color: #4b5563;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: rgba(226, 232, 240, 0.98);
     }
 
     .gift-footer {
@@ -532,47 +623,47 @@
       font-size: 11px;
       padding: 5px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid #d7dcea;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #ffffff;
+      border: 1px solid rgba(96, 165, 250, 0.9);
+      background: linear-gradient(135deg, #38BDF8, #6366F1);
+      color: #F9FAFB;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.85);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
     .gift-link:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 18px 46px rgba(59, 130, 246, 0.9);
     }
 
     .disclaimer {
       font-size: 10px;
-      color: var(--text-muted);
+      color: rgba(156, 163, 175, 0.96);
     }
 
     .faq-card {
-      padding: 16px 16px 14px;
-      border-radius: 18px;
-      background: var(--bg-soft);
-      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.7);
       font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 16px;
+      color: rgba(209, 213, 219, 0.96);
+      margin-top: 4px;
     }
 
     .faq-title {
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 8px;
-      color: var(--text-main);
+      color: #E5E7EB;
     }
 
     .faq-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 10px;
+      gap: 8px;
     }
 
     .faq-item strong {
@@ -580,15 +671,15 @@
       font-size: 12px;
       font-weight: 600;
       margin-bottom: 2px;
-      color: var(--text-main);
+      color: #F9FAFB;
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 22px;
       padding-top: 12px;
-      border-top: 1px solid #e1e4ef;
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
     }
 
     .footer-inner {
@@ -600,13 +691,14 @@
     }
 
     .footer-links a {
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
       text-decoration: none;
       margin-left: 10px;
     }
 
     .footer-links a:hover {
       text-decoration: underline;
+      color: #E5E7EB;
     }
 
     @media (max-width: 720px) {
@@ -622,218 +714,240 @@
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
-      </div>
-      <nav class="nav">
-        <a href="#how-it-works" class="nav-highlight">Start</a>
-        <a href="#faq">FAQ</a>
-        <a href="/about.html">About</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </nav>
-    </header>
-
-    <main>
-      <div class="layout">
-        <section class="hero-card" id="how-it-works">
-          <div class="hero-eyebrow">
-            <span class="hero-dot"></span>
-            AI that turns a few details into a short, curated gift list.
-          </div>
-          <h1 class="hero-title">
-            Find a thoughtful gift in seconds, <span>not hours of scrolling.</span>
-          </h1>
-          <p class="hero-subtitle">
-            GiftPicks AI turns basic details about the person you’re shopping for into
-            <strong>practical, tailored gift ideas</strong> with links you can act on immediately.
-          </p>
-          <div class="hero-points">
-            <div class="hero-pill">
-              <span class="hero-pill-dot"></span> Tailored by relationship, age, and interests
-            </div>
-            <div class="hero-pill">
-              <span class="hero-pill-dot"></span> Budget-aware recommendations
-            </div>
-            <div class="hero-pill">
-              <span class="hero-pill-dot"></span> No login, no sign-up required
-            </div>
-          </div>
-
-          <form class="form-card" id="gift-form">
-            <div class="form-grid">
-              <div class="form-row">
-                <label for="recipientType">Who is this gift for?</label>
-                <select id="recipientType" required>
-                  <option value="">Select one…</option>
-                  <option value="partner">Partner / spouse</option>
-                  <option value="crush">Crush / someone you like</option>
-                  <option value="friend">Friend</option>
-                  <option value="family">Family member</option>
-                  <option value="coworker">Coworker / manager</option>
-                  <option value="kid">Child / teen</option>
-                  <option value="other">Other / not sure</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="ageRange">Age range (approx.)</label>
-                <select id="ageRange">
-                  <option value="">Any age</option>
-                  <option value="0-5">0–5</option>
-                  <option value="6-12">6–12</option>
-                  <option value="13-17">13–17</option>
-                  <option value="18-24">18–24</option>
-                  <option value="25-34">25–34</option>
-                  <option value="35-49">35–49</option>
-                  <option value="50+">50+</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="occasion">Occasion</label>
-                <select id="occasion">
-                  <option value="">Just because</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="christmas">Christmas / holiday</option>
-                  <option value="anniversary">Anniversary</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="baby-shower">Baby shower</option>
-                  <option value="graduation">Graduation</option>
-                  <option value="thank-you">Thank you</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label>Budget range (USD)</label>
-                <div class="chip-row" id="budget-chips">
-                  <button type="button" class="chip" data-value="under-25">Under $25</button>
-                  <button type="button" class="chip" data-value="25-50">$25–$50</button>
-                  <button type="button" class="chip" data-value="50-100">$50–$100</button>
-                  <button type="button" class="chip" data-value="100-250">$100–$250</button>
-                  <button type="button" class="chip" data-value="250+">$250+</button>
-                </div>
-                <input type="hidden" id="budgetRange" />
-              </div>
-
-              <div class="form-row" style="grid-column: 1 / -1;">
-                <label>Interests & preferences</label>
-                <div class="chip-row" id="interest-chips">
-                  <button type="button" class="chip" data-value="tech">Tech & gadgets</button>
-                  <button type="button" class="chip" data-value="gaming">Gaming</button>
-                  <button type="button" class="chip" data-value="sports">Sports & fitness</button>
-                  <button type="button" class="chip" data-value="fashion">Fashion & style</button>
-                  <button type="button" class="chip" data-value="beauty">Beauty & self-care</button>
-                  <button type="button" class="chip" data-value="outdoors">Outdoors & travel</button>
-                  <button type="button" class="chip" data-value="home">Home & cozy</button>
-                  <button type="button" class="chip" data-value="books">Books & learning</button>
-                  <button type="button" class="chip" data-value="food">Food & coffee</button>
-                  <button type="button" class="chip" data-value="funny">Light, fun, or humorous</button>
-                </div>
-                <textarea id="customInterests" placeholder="Add anything specific: hobbies, favorite brands, teams, colors, etc."></textarea>
-                <p class="field-help">You can keep this simple—one or two helpful details is often enough.</p>
-              </div>
-
-              <div class="form-row" style="grid-column: 1 / -1;">
-                <label for="country">Where do they live?</label>
-                <select id="country">
-                  <option value="">Select a region…</option>
-                  <option value="us">United States</option>
-                  <option value="uk">United Kingdom</option>
-                  <option value="eu">Europe</option>
-                  <option value="canada">Canada</option>
-                  <option value="australia">Australia / New Zealand</option>
-                  <option value="other">Other / not listed</option>
-                </select>
-                <p class="field-help">This helps avoid suggestions that don’t ship easily or don’t make sense for their location.</p>
-              </div>
-            </div>
-
-            <div class="form-footer">
-              <button type="submit" class="primary-btn" id="submit-btn">
-                <span id="btn-label">Generate gift ideas</span>
-                <span id="btn-spinner" style="display:none;">Thinking…</span>
-              </button>
-              <div class="form-subcopy">
-                No login. No email. Just suggestions you can act on.
-              </div>
-            </div>
-            <div id="form-message"></div>
-
-            <div class="preview-card" aria-hidden="true">
-              <div class="preview-title">Example idea: Weighted knit throw blanket</div>
-              <div class="preview-meta">
-                <span>Budget: $50–$100</span>
-                <span>Profile: cozy homebody</span>
-              </div>
-              <div class="preview-body">
-                A soft, modern weighted throw blanket that makes evenings on the couch feel more relaxing and grounded.
-              </div>
-              <div class="preview-why">
-                <strong>Why it works:</strong> It’s practical, feels like a small upgrade to their space, and suits a wide range of tastes.
-              </div>
-              <a href="#" class="preview-link">View a similar search on Amazon</a>
-              <div class="preview-note">
-                This is just an example. Your results will be based on the details you enter above.
-              </div>
-            </div>
-          </form>
-        </section>
-
-        <section class="results-shell">
-          <div class="results-card" aria-live="polite">
-            <div class="results-header">
-              <div class="results-title">Gift ideas generated for you</div>
-              <div class="results-status" id="results-status">Fill in the form and run GiftPicks AI to see ideas here.</div>
-            </div>
-            <div class="results-hint">
-              You’ll see a small set of targeted ideas, each with a short explanation and a link you can use to keep browsing.
-            </div>
-            <div class="gift-grid" id="gift-grid"></div>
-          </div>
-
-          <div class="faq-card" id="faq">
-            <h2 class="faq-title">How GiftPicks AI fits into your gift search</h2>
-            <div class="faq-grid">
-              <div class="faq-item">
-                <strong>Is this really using AI?</strong>
-                Yes. When you submit the form, your answers are turned into a structured prompt sent to an AI model.
-                It returns several suggestions and brief explanations of why each idea could be a fit.
-              </div>
-              <div class="faq-item">
-                <strong>Do you earn money from links?</strong>
-                Some outbound links may be affiliate links. If you make a qualifying purchase, GiftPicks AI may earn
-                a small commission—at no additional cost to you.
-              </div>
-              <div class="faq-item">
-                <strong>What about price and availability?</strong>
-                Prices, stock, and shipping options come from the retailer and can change at any time. Always review
-                product details and reviews before buying.
-              </div>
-              <div class="faq-item">
-                <strong>Can I run it more than once?</strong>
-                Absolutely. Try different budgets, interests, or occasions to explore a few different angles before
-                you decide.
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>
-          © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
+    <div class="frame">
+      <header>
+        <div class="brand">
+          <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
         </div>
-        <div class="footer-links">
+        <nav class="nav">
+          <a href="#how-it-works" class="nav-highlight">Start</a>
+          <a href="#faq">FAQ</a>
           <a href="/about.html">About</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="layout">
+          <!-- LEFT: HERO + FORM -->
+          <section class="hero-card" id="how-it-works">
+            <div class="hero-top-row">
+              <div class="hero-eyebrow">
+                <span class="hero-dot"></span>
+                AI that turns a few details into a short, curated gift list.
+              </div>
+              <div class="hero-pill-metrics">
+                <div class="metric-pill">
+                  <span class="metric-dot"></span>
+                  <span>Skip the “100+ gift ideas” listicles.</span>
+                </div>
+                <div class="metric-pill">
+                  <span class="metric-dot"></span>
+                  <span>3–6 focused suggestions per run.</span>
+                </div>
+              </div>
+            </div>
+
+            <h1 class="hero-title">
+              Find a thoughtful gift in seconds, <span>not hours of scrolling.</span>
+            </h1>
+            <p class="hero-subtitle">
+              GiftPicks AI turns basic details about the person you’re shopping for into
+              <strong>practical, tailored gift ideas</strong> with links you can act on immediately.
+            </p>
+            <div class="hero-points">
+              <div class="hero-pill">
+                <span class="hero-pill-dot"></span> Tailored by relationship, age, and interests
+              </div>
+              <div class="hero-pill">
+                <span class="hero-pill-dot"></span> Budget-aware recommendations
+              </div>
+              <div class="hero-pill">
+                <span class="hero-pill-dot"></span> No login, no sign-up required
+              </div>
+            </div>
+
+            <form class="form-card" id="gift-form">
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="recipientType">Who is this gift for?</label>
+                  <select id="recipientType" required>
+                    <option value="">Select one…</option>
+                    <option value="partner">Partner / spouse</option>
+                    <option value="crush">Crush / someone you like</option>
+                    <option value="friend">Friend</option>
+                    <option value="family">Family member</option>
+                    <option value="coworker">Coworker / manager</option>
+                    <option value="kid">Child / teen</option>
+                    <option value="other">Other / not sure</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="ageRange">Age range (approx.)</label>
+                  <select id="ageRange">
+                    <option value="">Any age</option>
+                    <option value="0-5">0–5</option>
+                    <option value="6-12">6–12</option>
+                    <option value="13-17">13–17</option>
+                    <option value="18-24">18–24</option>
+                    <option value="25-34">25–34</option>
+                    <option value="35-49">35–49</option>
+                    <option value="50+">50+</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="occasion">Occasion</label>
+                  <select id="occasion">
+                    <option value="">Just because</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="christmas">Christmas / holiday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="baby-shower">Baby shower</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="thank-you">Thank you</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label>Budget range (USD)</label>
+                  <div class="chip-row" id="budget-chips">
+                    <button type="button" class="chip" data-value="under-25">Under $25</button>
+                    <button type="button" class="chip" data-value="25-50">$25–$50</button>
+                    <button type="button" class="chip" data-value="50-100">$50–$100</button>
+                    <button type="button" class="chip" data-value="100-250">$100–$250</button>
+                    <button type="button" class="chip" data-value="250+">$250+</button>
+                  </div>
+                  <input type="hidden" id="budgetRange" />
+                </div>
+
+                <div class="form-row" style="grid-column: 1 / -1;">
+                  <label>Interests & preferences</label>
+                  <div class="chip-row" id="interest-chips">
+                    <button type="button" class="chip" data-value="tech">Tech & gadgets</button>
+                    <button type="button" class="chip" data-value="gaming">Gaming</button>
+                    <button type="button" class="chip" data-value="sports">Sports & fitness</button>
+                    <button type="button" class="chip" data-value="fashion">Fashion & style</button>
+                    <button type="button" class="chip" data-value="beauty">Beauty & self-care</button>
+                    <button type="button" class="chip" data-value="outdoors">Outdoors & travel</button>
+                    <button type="button" class="chip" data-value="home">Home & cozy</button>
+                    <button type="button" class="chip" data-value="books">Books & learning</button>
+                    <button type="button" class="chip" data-value="food">Food & coffee</button>
+                    <button type="button" class="chip" data-value="funny">Light, fun, or humorous</button>
+                  </div>
+                  <textarea id="customInterests" placeholder="Add anything specific: hobbies, favorite brands, teams, colors, etc."></textarea>
+                  <p class="field-help">One or two helpful details is usually enough for strong ideas.</p>
+                </div>
+
+                <div class="form-row" style="grid-column: 1 / -1;">
+                  <label for="country">Where do they live?</label>
+                  <select id="country">
+                    <option value="">Select a region…</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="eu">Europe</option>
+                    <option value="canada">Canada</option>
+                    <option value="australia">Australia / New Zealand</option>
+                    <option value="other">Other / not listed</option>
+                  </select>
+                  <p class="field-help">Helps avoid suggestions that don’t ship easily or don’t make sense for their location.</p>
+                </div>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="primary-btn" id="submit-btn">
+                  <span id="btn-label">Generate gift ideas</span>
+                  <span id="btn-spinner" style="display:none;">Thinking…</span>
+                </button>
+                <div class="form-subcopy">
+                  No login. No email. Just suggestions you can act on.
+                </div>
+              </div>
+              <div id="form-message"></div>
+
+              <div class="preview-card" aria-hidden="true">
+                <div class="preview-title">Example idea: Weighted knit throw blanket</div>
+                <div class="preview-meta">
+                  <span>Budget: $50–$100</span>
+                  <span>Profile: cozy homebody</span>
+                </div>
+                <div class="preview-body">
+                  A soft, modern weighted throw blanket that makes evenings on the couch feel more relaxing and grounded.
+                </div>
+                <div class="preview-why">
+                  <strong>Why it works:</strong> It’s practical, feels like a small upgrade to their space, and suits a wide range of tastes.
+                </div>
+                <a href="#" class="preview-link">View a similar search on Amazon</a>
+                <div class="preview-note">
+                  This is just an example. Your results will be based on the details you enter above.
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- RIGHT: RESULTS + FAQ -->
+          <section class="results-shell">
+            <div class="results-card" aria-live="polite">
+              <div class="results-strip"></div>
+              <div class="results-inner">
+                <div class="results-header">
+                  <div class="results-title">Gift ideas generated for you</div>
+                  <div class="results-status" id="results-status">
+                    Fill in the form and run GiftPicks AI to see ideas here.
+                  </div>
+                </div>
+                <div class="results-hint">
+                  You’ll see a small set of targeted ideas, each with a short explanation and a link you can use to keep browsing.
+                </div>
+                <div class="gift-grid" id="gift-grid"></div>
+              </div>
+            </div>
+
+            <div class="faq-card" id="faq">
+              <h2 class="faq-title">How GiftPicks AI fits into your gift search</h2>
+              <div class="faq-grid">
+                <div class="faq-item">
+                  <strong>Is this really using AI?</strong>
+                  Yes. When you submit the form, your answers are turned into a structured prompt sent to an AI model.
+                  It returns several suggestions and brief explanations of why each idea could be a fit.
+                </div>
+                <div class="faq-item">
+                  <strong>Do you earn money from links?</strong>
+                  Some outbound links may be affiliate links. If you make a qualifying purchase, GiftPicks AI may earn
+                  a small commission—at no additional cost to you.
+                </div>
+                <div class="faq-item">
+                  <strong>What about price and availability?</strong>
+                  Prices, stock, and shipping options come from the retailer and can change at any time. Always review
+                  product details and reviews before buying.
+                </div>
+                <div class="faq-item">
+                  <strong>Can I run it more than once?</strong>
+                  Absolutely. Try different budgets, interests, or occasions to explore a few different angles before
+                  you decide.
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </div>
-    </footer>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
+          </div>
+          <div class="footer-links">
+            <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
 
   <script>
