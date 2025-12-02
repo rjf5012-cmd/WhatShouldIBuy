@@ -1,66 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GiftPicks AI">
-  <!-- Icon background: stronger solid blue with subtle inner highlight -->
-  <rect x="2" y="2" width="36" height="36" rx="12" fill="#1D4ED8" />
-  <rect x="2" y="2" width="36" height="36" rx="12" fill="url(#paint0_radial)" />
-  <rect x="2" y="2" width="36" height="36" rx="12" stroke="rgba(15,23,42,0.18)" stroke-width="1" />
-
-  <!-- Gift box -->
-  <rect x="10.5" y="16" width="19" height="13" rx="3" fill="white" />
-  <rect x="10.5" y="16" width="19" height="13" rx="3" stroke="#CBD5F5" stroke-width="1" />
-
-  <!-- Vertical ribbon -->
-  <rect x="19" y="15" width="2.4" height="15" fill="#1D4ED8" />
-  <!-- Horizontal ribbon -->
-  <rect x="10.5" y="20" width="19" height="2.4" fill="#1D4ED8" />
-
-  <!-- Bow -->
-  <path d="M20.2 15.3C21.3 13.9 22.8 13.1 24.1 13.35C25.4 13.6 26.35 14.7 26.1 16C25.85 17.3 24.5 18.1 22.7 17.8L20.2 15.3Z" fill="#EFF6FF"/>
-  <path d="M18.8 15.3C17.7 13.9 16.2 13.1 14.9 13.35C13.6 13.6 12.65 14.7 12.9 16C13.15 17.3 14.5 18.1 16.3 17.8L18.8 15.3Z" fill="#EFF6FF"/>
-  <circle cx="19.5" cy="15.7" r="1.4" fill="#1D4ED8"/>
-
-  <!-- Sparkles -->
-  <circle cx="34.5" cy="9" r="1.7" fill="white" fill-opacity="0.95" />
-  <circle cx="8.5" cy="30.5" r="1.3" fill="white" fill-opacity="0.8" />
-
-  <!-- Brand text -->
-  <g transform="translate(46, 10)">
-    <!-- "Gift" -->
-    <text x="0" y="14"
-      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
-      font-size="17" font-weight="700" letter-spacing="0.02em" fill="#0F172A">
-      Gift
-    </text>
-    <!-- "Picks" -->
-    <text x="42" y="14"
-      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
-      font-size="17" font-weight="700" letter-spacing="0.02em" fill="#2563EB">
-      Picks
-    </text>
-
-    <!-- AI pill -->
-    <rect x="106" y="4.5" width="38" height="18" rx="9" fill="#EFF6FF" />
-    <rect x="106" y="4.5" width="38" height="18" rx="9" stroke="#DBEAFE" stroke-width="0.9" />
-    <text x="113" y="17"
-      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
-      font-size="11" font-weight="600" letter-spacing="0.1em" fill="#1D4ED8">
-      AI
-    </text>
-
-    <!-- Tagline -->
-    <text x="0" y="30"
-      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
-      font-size="11" font-weight="400" fill="#6B7280">
-      AI-powered gift suggestions
-    </text>
-  </g>
-
+<svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GiftPicks AI">
   <defs>
-    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-      gradientTransform="translate(8 6) rotate(35) scale(34)">
-      <stop offset="0" stop-color="#4F8BFF"/>
-      <stop offset="0.45" stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#1D3FAD"/>
+    <!-- Main gradient for icon -->
+    <linearGradient id="gp-gradient" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="0.5" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+
+    <!-- Subtle glow -->
+    <radialGradient id="gp-glow" cx="0" cy="0" r="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(22 10) rotate(90) scale(22)">
+      <stop offset="0" stop-color="#E0F2FE" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#E0F2FE" stop-opacity="0"/>
     </radialGradient>
   </defs>
+
+  <!-- Glow behind icon -->
+  <circle cx="22" cy="22" r="20" fill="url(#gp-glow)" />
+
+  <!-- Gift outline (rounded square) -->
+  <rect x="8" y="14" width="28" height="26" rx="9"
+        fill="white"
+        stroke="url(#gp-gradient)"
+        stroke-width="2.3" />
+
+  <!-- Vertical ribbon -->
+  <path d="M22 14v26" stroke="url(#gp-gradient)" stroke-width="2.1" stroke-linecap="round"/>
+
+  <!-- Horizontal ribbon -->
+  <path d="M10 26h24" stroke="url(#gp-gradient)" stroke-width="2.1" stroke-linecap="round"/>
+
+  <!-- Modern bow (two petal loops, slightly heart-inspired) -->
+  <path d="
+    M22 15.4
+    C19.4 11.4 16 10 13.7 10.4
+    C11.6 10.7 10.2 12.4 10.3 14.5
+    C10.5 16.7 11.9 18.5 14.3 19
+    C16.7 19.5 19.2 18.5 21 17.1
+    " 
+    fill="none"
+    stroke="url(#gp-gradient)"
+    stroke-width="2.1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="
+    M22 15.4
+    C24.6 11.4 28 10 30.3 10.4
+    C32.4 10.7 33.8 12.4 33.7 14.5
+    C33.5 16.7 32.1 18.5 29.7 19
+    C27.3 19.5 24.8 18.5 23 17.1
+    "
+    fill="none"
+    stroke="url(#gp-gradient)"
+    stroke-width="2.1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Center knot -->
+  <circle cx="22" cy="15.4" r="2" fill="url(#gp-gradient)" />
+
+  <!-- Wordmark -->
+  <!-- "Gift" -->
+  <text x="52" y="23"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
+        font-size="18"
+        font-weight="700"
+        letter-spacing="0.03em"
+        fill="#0F172A">
+    GIFT
+  </text>
+
+  <!-- "Picks" -->
+  <text x="97" y="23"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
+        font-size="18"
+        font-weight="600"
+        letter-spacing="0.03em"
+        fill="#2563EB">
+    PICKS
+  </text>
+
+  <!-- Small AI pill -->
+  <rect x="52" y="29" width="56" height="17" rx="8.5"
+        fill="#EFF6FF"
+        stroke="#DBEAFE"
+        stroke-width="0.9"/>
+  <text x="60" y="41"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif"
+        font-size="11"
+        font-weight="500"
+        letter-spacing="0.14em"
+        fill="#1D4ED8">
+    AI · GIFTS
+  </text>
 </svg>
