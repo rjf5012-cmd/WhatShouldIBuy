@@ -11,7 +11,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
 
   <style>
     :root {
@@ -22,7 +22,6 @@
       --text-light: #e2e8f0;
       --text-muted: #94a3b8;
       --text-bright: #f9fafb;
-      --radius: 14px;
     }
 
     * { box-sizing: border-box; }
@@ -50,7 +49,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       gap: 16px;
     }
     .brand {
@@ -59,8 +58,10 @@
       gap: 14px;
     }
     .brand-logo {
-      height: 56px;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+      height: 60px;
+      width: 60px;
+      border-radius: 22px;
+      filter: drop-shadow(0 6px 18px rgba(15,23,42,0.9));
     }
     .brand-text {
       display: flex;
@@ -69,7 +70,7 @@
     }
     .brand-name {
       color: var(--text-bright);
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
@@ -92,15 +93,15 @@
       border: 1px solid transparent;
       transition: 0.2s;
     }
-    nav a.active {
-      border-color: rgba(148,163,184,0.9);
-      background: rgba(15,23,42,0.9);
-      color: #fff;
-    }
     nav a:hover {
       color: #ffffff;
       border-color: rgba(148,163,184,0.6);
       background: rgba(15,23,42,0.9);
+    }
+    nav a.active {
+      border-color: rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
     }
 
     /* CARD */
@@ -162,9 +163,7 @@
       color: #38bdf8;
       text-decoration: none;
     }
-    .faq-answer a:hover {
-      text-decoration: underline;
-    }
+    .faq-answer a:hover { text-decoration: underline; }
 
     /* FOOTER */
     footer {
@@ -262,7 +261,7 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI Logo" class="brand-logo" />
+        <img src="/logo-giftpicksai.png" alt="GiftPicks AI Logo" class="brand-logo" />
         <div class="brand-text">
           <div class="brand-name">GiftPicks AI</div>
           <div class="brand-tagline">AI-powered gift suggestions</div>
@@ -401,7 +400,6 @@
         <a href="/contact.html">Contact</a>
       </div>
     </footer>
-
   </div>
 
   <!-- COOKIE BANNER -->
@@ -414,10 +412,10 @@
   </div>
 
   <script>
-    // Year in footer
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Shared cookie banner logic
+    // Cookie banner
     (function() {
       const banner = document.getElementById("cookieBanner");
       const acceptBtn = document.getElementById("cookieAccept");
@@ -429,9 +427,7 @@
           banner.style.display = "none";
           return;
         }
-      } catch (e) {
-        // If localStorage fails, just show the banner
-      }
+      } catch (e) {}
 
       banner.style.display = "flex";
 
