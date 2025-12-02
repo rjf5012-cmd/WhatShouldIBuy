@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <title>Contact | GiftPicks AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contact GiftPicks AI for questions, feedback, or partnership opportunities." />
+  <meta name="description" content="Contact the creator of GiftPicks AI with feedback, questions, or partnership ideas." />
 
   <!-- Google AdSense verification -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509398148166447"
     crossorigin="anonymous"></script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
 
   <style>
     :root {
@@ -21,7 +22,6 @@
       --text-light: #e2e8f0;
       --text-muted: #94a3b8;
       --text-bright: #f9fafb;
-      --radius: 14px;
     }
 
     * { box-sizing: border-box; }
@@ -44,20 +44,46 @@
       padding: 32px 0 80px;
     }
 
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       gap: 16px;
     }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .brand-logo { height: 56px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
-    .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
-    .brand-name { color: var(--text-bright); font-size: 20px; font-weight: 700; }
-    .brand-tagline { color: var(--text-muted); font-size: 12px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      height: 60px;
+      width: 60px;
+      border-radius: 22px;
+      filter: drop-shadow(0 6px 18px rgba(15,23,42,0.9));
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-name {
+      color: var(--text-bright);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-tagline {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
 
-    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -67,88 +93,103 @@
       border: 1px solid transparent;
       transition: 0.2s;
     }
-    nav a.active {
-      border-color: rgba(148,163,184,0.9);
-      background: rgba(15,23,42,0.9);
-      color: #fff;
-    }
     nav a:hover {
       color: #ffffff;
       border-color: rgba(148,163,184,0.6);
       background: rgba(15,23,42,0.9);
     }
+    nav a.active {
+      border-color: rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
+    }
 
+    /* CARD */
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
       border: 1px solid var(--card-border);
+      padding: 26px 24px 26px;
       border-radius: 20px;
-      padding: 26px 24px 28px;
+      backdrop-filter: blur(16px);
       box-shadow: 0 30px 80px rgba(15,23,42,0.7);
     }
 
     .page-title {
-      font-size: clamp(26px, 3vw, 30px);
-      font-weight: 700;
-      margin: 4px 0 8px;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      font-size: clamp(28px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .page-subtitle {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 20px;
-      max-width: 540px;
-    }
-
-    .section {
       margin-bottom: 18px;
-    }
-    .section-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-bright);
-      margin-bottom: 6px;
-    }
-    .section p {
-      margin: 0 0 6px;
-      font-size: 14px;
-      color: var(--text-light);
+      max-width: 600px;
     }
 
-    .email-link {
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: #e2e8f0;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.7);
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.7);
+      background: rgba(15,23,42,1);
+    }
+
+    .form-row {
+      margin-bottom: 14px;
+    }
+
+    .button-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 4px;
-      padding: 9px 14px;
+      justify-content: center;
+      padding: 10px 18px;
       font-size: 14px;
+      font-weight: 600;
       border-radius: 999px;
-      background: rgba(15,23,42,1);
-      border: 1px solid rgba(148,163,184,0.9);
-      color: var(--text-bright);
-      text-decoration: none;
+      background: var(--accent-gradient);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 16px 40px rgba(56,189,248,0.7);
       transition: 0.18s;
     }
-    .email-link:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 16px 40px rgba(56,189,248,0.55);
+    .button-primary:hover {
+      filter: brightness(1.08);
       transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(59,130,246,0.9);
     }
 
-    .pill {
-      display: inline-block;
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: rgba(15,23,42,1);
-      border: 1px solid rgba(148,163,184,0.7);
+    .contact-note {
+      font-size: 13px;
       color: var(--text-muted);
-      margin-top: 4px;
+      margin-top: 10px;
     }
 
+    /* FOOTER */
     footer {
       margin-top: 26px;
       font-size: 12px;
@@ -175,6 +216,7 @@
       text-decoration: underline;
     }
 
+    /* COOKIE BANNER */
     .cookie-banner {
       position: fixed;
       left: 50%;
@@ -243,7 +285,7 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI Logo" class="brand-logo" />
+        <img src="/logo-giftpicksai.png" alt="GiftPicks AI Logo" class="brand-logo" />
         <div class="brand-text">
           <div class="brand-name">GiftPicks AI</div>
           <div class="brand-tagline">AI-powered gift suggestions</div>
@@ -253,59 +295,44 @@
       <nav>
         <a href="/">Home</a>
         <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="/contact.html" class="active">Contact</a>
       </nav>
     </header>
 
-    <!-- CONTACT CARD -->
+    <!-- CONTENT -->
     <main class="card">
-      <h1 class="page-title">Contact GiftPicks AI</h1>
+      <h1 class="page-title">Contact</h1>
       <p class="page-subtitle">
-        Have feedback, found a bug, or interested in partnering? We’d love to hear from you.
-        The fastest way to reach us is by email.
+        Have feedback, questions, or ideas for improving GiftPicks AI? Reach out using the details below.
       </p>
 
-      <section class="section">
-        <div class="section-title">General questions & feedback</div>
-        <p>
-          For product feedback, feature requests, or general questions about GiftPicks AI,
-          email us anytime:
-        </p>
-        <a class="email-link" href="mailto:hello@giftpicksai.com">
-          <span>hello@giftpicksai.com</span>
-        </a>
-        <p class="pill">Typical response time: 1–2 business days</p>
-      </section>
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input id="name" placeholder="Optional, first name is fine" />
+      </div>
 
-      <section class="section">
-        <div class="section-title">Partnerships & collaboration</div>
-        <p>
-          If you’re interested in partnerships, integrations, or featuring GiftPicks AI in your content,
-          please include <strong>“Partnership”</strong> in the email subject line so we can route it correctly.
-        </p>
-      </section>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" placeholder="you@example.com" />
+      </div>
 
-      <section class="section">
-        <div class="section-title">Reporting an issue</div>
-        <p>
-          If something on the site isn’t working as expected, please include:
-        </p>
-        <ul style="margin: 4px 0 0 18px; padding: 0; font-size: 14px; color: var(--text-light);">
-          <li>What you were trying to do</li>
-          <li>Any error message you saw</li>
-          <li>Your device and browser (e.g., iPhone / Safari, Windows / Chrome)</li>
-        </ul>
-      </section>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Tell us what’s on your mind..."></textarea>
+      </div>
 
-      <section class="section">
-        <div class="section-title">DMCA & legal</div>
-        <p>
-          For formal legal or DMCA notices, please send an email with
-          <strong>“DMCA”</strong> in the subject line so it can be reviewed promptly.
-        </p>
-      </section>
+      <button class="button-primary" type="button" onclick="window.location.href='mailto:hello@giftpicksai.com'">
+        Open email to send message
+      </button>
+
+      <p class="contact-note">
+        When you click the button above, your email app will open with our address pre-filled:
+        <a href="mailto:hello@giftpicksai.com" style="color:#38bdf8;text-decoration:none;">hello@giftpicksai.com</a>.
+        You can also email us directly anytime.
+      </p>
     </main>
 
     <!-- FOOTER -->
@@ -314,12 +341,12 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="/contact.html">Contact</a>
       </div>
     </footer>
-
   </div>
 
   <!-- COOKIE BANNER -->
@@ -332,8 +359,10 @@
   </div>
 
   <script>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Cookie banner
     (function() {
       const banner = document.getElementById("cookieBanner");
       const acceptBtn = document.getElementById("cookieAccept");
