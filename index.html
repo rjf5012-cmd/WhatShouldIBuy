@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>GiftPicks AI | Smart Gift Ideas, Powered by AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Find the perfect gift instantly with GiftPicks AI. Powered by AI to deliver thoughtful, personalized gift ideas for any budget, person, or occasion." />
+  <meta name="description" content="Use GiftPicks AI to get personalized gift ideas in seconds. An AI gift finder that creates thoughtful, realistic gift suggestions based on your budget, occasion, and the person you’re shopping for." />
 
   <!-- Google AdSense verification (loader only, no ad units yet) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509398148166447"
@@ -312,25 +312,23 @@
       border: 1px solid rgba(148,163,184,0.45);
       backdrop-filter: blur(14px);
     }
-    .info-title {
-      font-size: 18px;
+    .info-item + .info-item {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(148,163,184,0.35);
+    }
+    .info-item h3 {
+      font-size: 16px;
       font-weight: 600;
       color: var(--text-bright);
-      margin-bottom: 8px;
+      margin: 0 0 6px;
     }
-    .info-body {
+    .info-item p {
       font-size: 14px;
       color: var(--text-light);
       line-height: 1.6;
-      margin-bottom: 10px;
+      margin: 0;
     }
-    .info-list {
-      margin: 6px 0 0 18px;
-      padding: 0;
-      font-size: 14px;
-      color: var(--text-light);
-    }
-    .info-list li { margin-bottom: 4px; }
     .info-muted {
       font-size: 12px;
       color: var(--text-muted);
@@ -450,6 +448,7 @@
       <nav>
         <a href="/">Home</a>
         <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="/contact.html">Contact</a>
@@ -614,31 +613,52 @@
       <div id="resultsList"></div>
     </div>
 
-    <!-- INFO CONTENT SECTION -->
-    <section class="info-card" aria-label="About GiftPicks AI">
-      <h2 class="info-title">What is GiftPicks AI?</h2>
-      <p class="info-body">
-        GiftPicks AI is a simple tool that helps you turn “I have no idea what to buy” into a short,
-        focused list of gift ideas. Instead of scrolling endless lists, you answer a few quick questions
-        about who you’re shopping for, your budget, and their interests. The AI then generates ideas that
-        are tailored to the person, the occasion, and how you want the gift to feel.
-      </p>
-      <p class="info-body">
-        Behind the scenes, GiftPicks AI uses large language models to combine your inputs
-        (like recipient type, age range, interests, and tone) into a set of concrete suggestions.
-        Each idea is designed to be something you could actually buy online, with a rough price range
-        and a search term you can use on your favorite shopping site.
-      </p>
-      <ul class="info-list">
-        <li>Smarter than generic “top 100 gifts” posts.</li>
-        <li>Fast enough to use right before a birthday or holiday.</li>
-        <li>Flexible enough to work for any relationship or budget.</li>
-      </ul>
+    <!-- INFO CONTENT SECTION (updated SEO copy) -->
+    <div class="info-card">
+      <div class="info-item">
+        <h3>What Is GiftPicks AI?</h3>
+        <p>
+          GiftPicks AI is a smart, personalized gift-finding assistant. Instead of scrolling through endless
+          product lists or generic recommendations, our tool analyzes your inputs — who the gift is for,
+          their interests, your budget, and the tone you want — and instantly creates thoughtful, relevant,
+          and realistic gift ideas you can use right away.
+        </p>
+      </div>
+
+      <div class="info-item">
+        <h3>Why Use AI for Gift Ideas?</h3>
+        <p>
+          AI can understand context far better than traditional gift guides. Whether you’re shopping for a
+          partner, friend, coworker, or family member, GiftPicks AI tailors every suggestion to your specific
+          situation. No generic products, no guesswork — just personalized gift recommendations powered by
+          modern AI language models.
+        </p>
+      </div>
+
+      <div class="info-item">
+        <h3>How to Get the Best Results</h3>
+        <p>
+          For the most accurate gift ideas, include a few quick details: the recipient’s gender (optional),
+          the occasion, any hobbies or interests, your approximate budget, and the tone you're aiming for —
+          fun, practical, unique, romantic, tech-savvy, and more. GiftPicks AI turns your description into a
+          curated list of ideas designed specifically for that person.
+        </p>
+      </div>
+
+      <div class="info-item">
+        <h3>Fast, Free, and Easy to Use</h3>
+        <p>
+          GiftPicks AI is completely free to use and works instantly on desktop and mobile. Whether you need
+          a last-minute birthday idea, a holiday gift, or something meaningful “just because,” our AI gift
+          finder helps you discover creative ideas in seconds.
+        </p>
+      </div>
+
       <p class="info-muted">
-        Note: GiftPicks AI doesn’t track who your recipient is or store any personal identity information.
+        Note: GiftPicks AI doesn’t track who your recipient is or store personal identity information.
         The tool only works with the preferences and context you choose to share in the form above.
       </p>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -646,6 +666,7 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="/contact.html">Contact</a>
@@ -858,7 +879,7 @@ Return ONLY valid JSON with this shape:
           return;
         }
       } catch (e) {
-        // localStorage might not be available; fail open (show banner)
+        // localStorage might not be available; show banner anyway
       }
 
       banner.style.display = "flex";
