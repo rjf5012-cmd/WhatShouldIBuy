@@ -95,7 +95,6 @@ function jsonResponse(data, status = 200) {
     status,
     headers: {
       "Content-Type": "application/json",
-      // Helpful if you ever hit it from another origin
       "Access-Control-Allow-Origin": "*",
     },
   });
