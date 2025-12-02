@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About GiftPicks AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Learn more about GiftPicks AI, an AI-powered tool that helps you find thoughtful gift ideas in seconds." />
+  <link rel="canonical" href="https://giftpicksai.com/about.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    :root {
+      --bg: #f5f5f8;
+      --card-bg: #ffffff;
+      --text-main: #1f2430;
+      --text-muted: #6f7685;
+      --border-subtle: #e0e3ec;
+      --accent: #ff6f61;
+      --accent-soft: rgba(255, 111, 97, 0.08);
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f5f8 45%, #eceff5 100%);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 15% 0, #ffe9e5 0, #ffb9a9 30%, #ff6f61 70%, #c52c41 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(255, 111, 97, 0.4);
+      font-size: 18px;
+    }
+
+    .logo-text-title {
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      font-size: 18px;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: 10px;
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      transition: background 0.15s ease-out, color 0.15s ease-out;
+    }
+
+    nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 8px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 4px 0 8px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 4px 0 8px;
+    }
+
+    li {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(255, 111, 97, 0.2);
+    }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid #e1e4ef;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">🎁</div>
+        <div>
+          <div class="logo-text-title">GiftPicks AI</div>
+          <div class="logo-text-sub">AI-powered gift ideas</div>
+        </div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="meta-tag">About GiftPicks AI</div>
+        <h1>Our goal: make gift shopping easier</h1>
+        <p>
+          GiftPicks AI was created to solve a simple problem: finding a thoughtful gift shouldn’t require hours of
+          scrolling through endless lists and product pages.
+        </p>
+        <p>
+          Instead of generic “top 100 gifts” articles, GiftPicks AI asks a few targeted questions about who you’re
+          shopping for, their interests, and your budget. Using that information, our AI suggests a short list of
+          gift ideas tailored to your situation—plus a quick explanation of <strong>why</strong> each one might be a good fit.
+        </p>
+
+        <h2>How it works</h2>
+        <p>
+          When you submit the form on the homepage, GiftPicks AI:
+        </p>
+        <ul>
+          <li>Takes in simple details like recipient type, age range, interests, and budget.</li>
+          <li>Builds a structured prompt for an AI model based on your answers.</li>
+          <li>Generates several gift ideas with plain-language explanations.</li>
+          <li>Creates Amazon search links so you can quickly browse real products.</li>
+        </ul>
+        <p>
+          You stay in control the whole time—no account creation, no long surveys, and you can re-run it as often as
+          you like with different inputs.
+        </p>
+
+        <h2>Why some links are affiliate links</h2>
+        <p>
+          GiftPicks AI may use affiliate links for some outbound shopping links (for example, to Amazon). This means we
+          may earn a small commission if you make a qualifying purchase through one of those links, at no extra cost to you.
+          These commissions help support hosting, development, and ongoing improvements to the tool.
+        </p>
+        <p>
+          You’re always free to ignore the links and search for the products on your own—we simply aim to make it faster
+          to go from a good idea to a real purchase.
+        </p>
+
+        <h2>What GiftPicks AI is—and isn’t</h2>
+        <p>
+          GiftPicks AI is:
+        </p>
+        <ul>
+          <li>A fast way to brainstorm gift ideas that actually match the person and occasion.</li>
+          <li>A simple, no-login tool you can use right before birthdays, holidays, and events.</li>
+          <li>A starting point to help you narrow down choices, not a guarantee of the “perfect” gift.</li>
+        </ul>
+        <p>
+          GiftPicks AI is <strong>not</strong>:
+        </p>
+        <ul>
+          <li>A replacement for your own judgment or knowledge of the person you’re shopping for.</li>
+          <li>Responsible for product quality, availability, or pricing on third-party sites.</li>
+          <li>A source of professional financial, legal, or relationship advice.</li>
+        </ul>
+
+        <h2>Questions or feedback?</h2>
+        <p>
+          If you have suggestions, spot an issue, or just want to share how you used GiftPicks AI, we’d love to hear from you.
+        </p>
+        <p><strong>Email:</strong> hello@giftpicksai.com</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> GiftPicks AI</div>
+      <div>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/">Home</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
