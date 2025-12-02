@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ | GiftPicks AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Frequently asked questions about GiftPicks AI. Learn how the AI gift finder works, how your data is used, and how to get the best gift ideas." />
+
+  <!-- Google AdSense verification -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509398148166447"
+    crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(15,23,42,0.9);
+      --card-border: rgba(148,163,184,0.5);
+      --accent-gradient: linear-gradient(90deg, #38bdf8, #3b82f6, #a855f7);
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-bright: #f9fafb;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.25) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.28) 0, transparent 55%),
+        var(--bg-gradient);
+      color: var(--text-light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+      padding: 32px 0 80px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      height: 56px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-name {
+      color: var(--text-bright);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-tagline {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    nav a.active {
+      border-color: rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
+    }
+    nav a:hover {
+      color: #ffffff;
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+    }
+
+    /* CARD */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 26px 24px 26px;
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 80px rgba(15,23,42,0.7);
+    }
+
+    .page-title {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(28px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 600px;
+    }
+
+    .faq-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(148,163,184,0.4);
+      padding: 14px 0 12px;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-question {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 6px;
+    }
+
+    .faq-answer {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .faq-answer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    .faq-answer a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 26px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      padding-top: 14px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .footer-links a:hover {
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+
+    /* COOKIE BANNER */
+    .cookie-banner {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      max-width: 720px;
+      width: calc(100% - 32px);
+      background: rgba(15,23,42,0.98);
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-light);
+      z-index: 50;
+    }
+    .cookie-banner p {
+      margin: 0;
+      flex: 1;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .cookie-banner a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .cookie-banner a:hover { text-decoration: underline; }
+    .cookie-banner button {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--accent-gradient);
+      color: #f9fafb;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .card {
+        padding: 22px 18px 22px;
+      }
+      .cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 16px;
+      }
+      .cookie-banner button {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI Logo" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-name">GiftPicks AI</div>
+          <div class="brand-tagline">AI-powered gift suggestions</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html" class="active">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- FAQ CONTENT -->
+    <main class="card">
+      <h1 class="page-title">Frequently Asked Questions</h1>
+      <p class="page-subtitle">
+        Quick answers to common questions about how GiftPicks AI works, how your data is used,
+        and how to get better gift ideas from the tool.
+      </p>
+
+      <ul class="faq-list">
+
+        <li class="faq-item">
+          <h2 class="faq-question">What is GiftPicks AI?</h2>
+          <p class="faq-answer">
+            GiftPicks AI is an AI-powered gift finder that helps you come up with thoughtful gift ideas
+            in seconds. You answer a few quick questions about who you’re shopping for, your budget,
+            their interests, and the tone you want, and the tool generates a short, curated list of
+            realistic gift suggestions.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">How does GiftPicks AI work?</h2>
+          <p class="faq-answer">
+            When you fill out the form on the homepage, your answers are turned into a detailed prompt
+            for a modern AI language model. The AI considers the recipient type, age range, interests,
+            budget, occasion, and desired gift tone to suggest a handful of ideas that make sense for
+            your situation. You can adjust the inputs and run it again anytime for fresh ideas.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Is GiftPicks AI free to use?</h2>
+          <p class="faq-answer">
+            Yes. GiftPicks AI is currently free to use. In the future, the site may display ads or
+            include affiliate links to help support ongoing development, but using the gift finder
+            itself does not cost you anything.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Do you track or store personal information?</h2>
+          <p class="faq-answer">
+            GiftPicks AI is designed to work without needing identifying personal details. We don’t ask
+            for names, phone numbers, or account logins. The inputs you provide are used to generate
+            gift ideas and may be processed by our AI provider, but we do not use them to identify
+            specific people. For more details, please read our
+            <a href="/privacy.html">Privacy Policy</a>.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Are the gift ideas guaranteed to be accurate or in stock?</h2>
+          <p class="faq-answer">
+            No. The gift suggestions are generated by AI and should be treated as ideas, not guarantees.
+            Product availability, pricing, and shipping options can change at any time. Always double-check
+            details on the retailer’s website before purchasing.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Why do you ask about gender and gift tone?</h2>
+          <p class="faq-answer">
+            These fields are optional, but they can help refine the suggestions. Gender can lightly
+            influence things like style or example products, and gift tone helps the AI aim for something
+            more practical, sentimental, funny, experience-based, or a bit of a splurge. If you prefer
+            not to use gender at all, simply choose “No gender preference” or leave it blank.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Will you use affiliate links (for example, Amazon links)?</h2>
+          <p class="faq-answer">
+            In the future, some gift ideas may include affiliate links to shopping sites like Amazon.
+            This means GiftPicks AI could earn a small commission if you make a purchase through those
+            links, at no extra cost to you. Any use of affiliate links will follow our
+            <a href="/terms.html">Terms of Service</a> and will not affect the types of ideas generated.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">Can I rely on GiftPicks AI for every situation?</h2>
+          <p class="faq-answer">
+            GiftPicks AI is meant to be a helpful assistant, not a replacement for your judgment.
+            It’s great for brainstorming and narrowing down options, but you know the recipient best.
+            Always consider their personality, values, and context before purchasing a gift.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">What’s the best way to get better gift suggestions?</h2>
+          <p class="faq-answer">
+            The more specific you are, the better the ideas tend to be. Include a rough age range,
+            a realistic budget, a few interests or hobbies, and the type of vibe you’re going for
+            (for example, “funny but still useful” or “thoughtful and sentimental”). You can also run
+            the tool multiple times with different angles to see a variety of ideas.
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <h2 class="faq-question">How can I contact you with feedback or issues?</h2>
+          <p class="faq-answer">
+            We’re always happy to hear suggestions and bug reports. You can reach us directly by email at
+            <a href="mailto:hello@giftpicksai.com">hello@giftpicksai.com</a>, or visit our
+            <a href="/contact.html">Contact</a> page for more details.
+          </p>
+        </li>
+
+      </ul>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© <span id="year"></span> GiftPicks AI. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookieBanner" class="cookie-banner" style="display:none;">
+    <p>
+      GiftPicks AI uses cookies for basic analytics and (in the future) advertising. By using this site,
+      you agree to our <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+    <button id="cookieAccept">OK</button>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Shared cookie banner logic
+    (function() {
+      const banner = document.getElementById("cookieBanner");
+      const acceptBtn = document.getElementById("cookieAccept");
+      if (!banner || !acceptBtn) return;
+
+      try {
+        const consent = localStorage.getItem("gpa_cookie_consent");
+        if (consent === "yes") {
+          banner.style.display = "none";
+          return;
+        }
+      } catch (e) {
+        // If localStorage fails, just show the banner
+      }
+
+      banner.style.display = "flex";
+
+      acceptBtn.addEventListener("click", () => {
+        banner.style.opacity = "0";
+        try {
+          localStorage.setItem("gpa_cookie_consent", "yes");
+        } catch (e) {}
+        setTimeout(() => {
+          banner.style.display = "none";
+        }, 200);
+      });
+    })();
+  </script>
+</body>
+</html>
