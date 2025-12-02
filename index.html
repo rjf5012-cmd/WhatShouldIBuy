@@ -7,34 +7,34 @@
   -->
 
   <meta charset="UTF-8" />
-  <title>SmartGift AI | Find the Perfect Gift in Seconds</title>
+  <title>GiftPicks AI | Find the Perfect Gift in Seconds</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SmartGift AI helps you find thoughtful gift ideas in seconds. Tell us who you're shopping for, your budget, and their interests—get tailored gift suggestions with direct shopping links." />
+  <meta name="description" content="GiftPicks AI helps you find thoughtful gift ideas in seconds. Tell us who you're shopping for, your budget, and their interests—get tailored gift suggestions with direct shopping links." />
 
-  <!-- Canonical (replace with your real URL) -->
-  <link rel="canonical" href="https://www.example.com/" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://giftpicksai.com/" />
 
   <!-- Favicon (replace with your own) -->
   <link rel="icon" type="image/png" href="/favicon.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="SmartGift AI | Find the Perfect Gift in Seconds" />
+  <meta property="og:title" content="GiftPicks AI | Find the Perfect Gift in Seconds" />
   <meta property="og:description" content="Use AI to get personalized gift ideas based on age, interests, and budget." />
-  <meta property="og:url" content="https://www.example.com/" />
-  <meta property="og:image" content="https://www.example.com/og-image.png" />
+  <meta property="og:url" content="https://giftpicksai.com/" />
+  <meta property="og:image" content="https://giftpicksai.com/og-image.png" />
 
   <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "SmartGift AI",
-    "url": "https://www.example.com/",
+    "name": "GiftPicks AI",
+    "url": "https://giftpicksai.com/",
     "description": "An AI-powered tool that suggests personalized gift ideas based on recipient, occasion, interests, and budget.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.example.com/?q={search_term_string}",
+      "target": "https://giftpicksai.com/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -596,7 +596,7 @@
       <div class="logo">
         <div class="logo-mark">🎁</div>
         <div>
-          <div class="logo-text-title">SmartGift AI</div>
+          <div class="logo-text-title">GiftPicks AI</div>
           <div class="logo-text-sub">Gift ideas in under 10 seconds</div>
         </div>
       </div>
@@ -617,7 +617,7 @@
           Find a thoughtful gift without the <span>scrolling headache.</span>
         </h1>
         <p class="hero-subtitle">
-          Tell SmartGift AI who you’re shopping for, your budget, and what they’re into. In seconds, you’ll get a short list of
+          Tell GiftPicks AI who you’re shopping for, your budget, and what they’re into. In seconds, you’ll get a short list of
           <strong>personalized gift ideas</strong> with direct shopping links.
         </p>
         <ul class="hero-list">
@@ -679,7 +679,7 @@
               <button type="button" class="chip" data-value="250+">$250+</button>
             </div>
             <input type="hidden" id="budgetRange" />
-            <p class="field-help">Pick one that feels close. SmartGift AI will match ideas to this range.</p>
+            <p class="field-help">Pick one that feels close. GiftPicks AI will match ideas to this range.</p>
           </div>
 
           <div class="form-row">
@@ -746,7 +746,7 @@
 
       <section class="results-card" aria-live="polite">
         <div class="results-header">
-          <div class="results-title">Your SmartGift AI ideas</div>
+          <div class="results-title">Your GiftPicks AI ideas</div>
           <div class="results-status" id="results-status">Fill in the form above to see suggestions.</div>
         </div>
         <div class="gift-grid" id="gift-grid">
@@ -755,7 +755,7 @@
       </section>
 
       <section class="faq-card" id="faq">
-        <h2 class="faq-title">How does SmartGift AI work?</h2>
+        <h2 class="faq-title">How does GiftPicks AI work?</h2>
         <div class="faq-grid">
           <div class="faq-item">
             <strong>Is this really using AI?</strong>
@@ -781,7 +781,7 @@
       <section class="faq-card" id="privacy">
         <h2 class="faq-title">Privacy & data</h2>
         <p>
-          SmartGift AI focuses on simple details like age range, interests, and budget. It doesn’t need names or contact info
+          GiftPicks AI focuses on simple details like age range, interests, and budget. It doesn’t need names or contact info
           to work.
         </p>
         <p style="font-size:11px;">
@@ -794,7 +794,7 @@
     <footer>
       <div class="footer-inner">
         <div>
-          © <span id="year"></span> SmartGift AI. Some links may be affiliate links; pricing and availability can change at any time.
+          © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
         </div>
         <div class="footer-links">
           <a href="#privacy">Privacy</a>
@@ -948,7 +948,7 @@ Only return valid JSON, no extra commentary.
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       showMessage('', '');
-      resultsStatus.textContent = 'Thinking… SmartGift AI is crafting ideas for you.';
+      resultsStatus.textContent = 'Thinking… GiftPicks AI is crafting ideas for you.';
       giftGrid.innerHTML = '';
 
       const payload = {
