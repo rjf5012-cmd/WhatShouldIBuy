@@ -9,29 +9,33 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
 
-  <!-- Styles -->
   <style>
     :root {
-      --bg-gradient: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-      --card-bg: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.12);
+      --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(15,23,42,0.9);
+      --card-border: rgba(148,163,184,0.5);
       --accent-gradient: linear-gradient(90deg, #38bdf8, #3b82f6, #a855f7);
+      --accent-soft: rgba(59,130,246,0.15);
       --text-light: #e2e8f0;
       --text-muted: #94a3b8;
-      --text-bright: #f8fafc;
+      --text-bright: #f9fafb;
       --radius: 14px;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg-gradient);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.25) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.28) 0, transparent 55%),
+        var(--bg-gradient);
       color: var(--text-light);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* GLOBAL LAYOUT */
     .container {
       width: min(1150px, 92%);
       margin: 0 auto;
@@ -44,6 +48,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 24px;
+      gap: 16px;
     }
     .brand {
       display: flex;
@@ -52,7 +57,7 @@
     }
     .brand-logo {
       height: 56px;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
     }
     .brand-text {
       display: flex;
@@ -72,53 +77,64 @@
 
     nav {
       display: flex;
-      gap: 22px;
+      gap: 18px;
+      flex-wrap: wrap;
     }
     nav a {
       color: var(--text-light);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
       transition: 0.2s;
     }
     nav a:hover {
       color: #ffffff;
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
     }
 
-    /* HERO */
+    /* HERO CARD */
     .hero-card {
       background: var(--card-bg);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--card-border);
-      padding: 26px 24px 22px;
-      border-radius: var(--radius);
-      margin-bottom: 26px;
+      padding: 26px 24px 24px;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(15,23,42,0.7);
     }
 
     .hero-title {
       font-size: clamp(28px, 3.3vw, 36px);
       font-weight: 700;
-      color: var(--text-bright);
-      margin: 4px 0 16px;
+      margin: 4px 0 8px;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: var(--text-light);
     }
 
     /* STEPPER */
     .stepper {
       display: flex;
       gap: 10px;
-      margin: 18px 0 28px;
+      margin: 10px 0 22px;
     }
     .step {
       flex: 1;
-      padding: 8px 0;
+      padding: 8px 10px;
       text-align: center;
       font-size: 12px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
       color: var(--text-muted);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(148,163,184,0.5);
+      white-space: nowrap;
     }
     .step.active {
       background: var(--accent-gradient);
@@ -128,25 +144,39 @@
     }
 
     /* FORM */
+    form {
+      margin-top: 10px;
+    }
     .form-grid {
       display: grid;
-      gap: 18px;
-      margin-top: 10px;
+      gap: 16px;
     }
 
     .form-row label {
       font-size: 14px;
       font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
     }
+
     .form-row select,
     .form-row input {
       width: 100%;
-      padding: 11px 13px;
-      font-size: 15px;
+      padding: 10px 12px;
+      font-size: 14px;
       color: #e2e8f0;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.7);
       border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .form-row select:focus,
+    .form-row input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.7);
+      background: rgba(15,23,42,1);
     }
 
     .field-help {
@@ -155,43 +185,104 @@
       color: var(--text-muted);
     }
 
+    /* CHIPS */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 6px;
+    }
+    .chip {
+      font-size: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-light);
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .chip:hover {
+      border-color: #60a5fa;
+      background: rgba(15,23,42,1);
+    }
+    .chip.active {
+      background: var(--accent-gradient);
+      border-color: transparent;
+      color: #f9fafb;
+      box-shadow: 0 10px 24px rgba(56,189,248,0.6);
+    }
+
+    /* SUBMIT BUTTON */
     .button-primary {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 14px 20px;
-      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 12px 18px;
+      font-size: 15px;
       font-weight: 600;
-      border-radius: var(--radius);
+      border-radius: 999px;
       background: var(--accent-gradient);
       color: #fff;
       border: none;
       cursor: pointer;
       text-align: center;
+      box-shadow: 0 18px 45px rgba(56,189,248,0.7);
+      transition: 0.18s;
     }
     .button-primary:hover {
-      filter: brightness(1.12);
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(59,130,246,0.9);
+    }
+    .button-primary:disabled {
+      opacity: 0.7;
+      cursor: default;
+      box-shadow: none;
+      transform: none;
     }
 
-    /* RESULTS PANEL */
+    .status-text {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* RESULTS */
     .results-card {
-      margin-top: 40px;
-      padding: 24px 24px 28px;
+      margin-top: 28px;
+      padding: 22px 22px 24px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
       display: none;
     }
+    .results-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+    }
+    .results-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
     .gift-item {
-      margin-bottom: 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-bottom: 18px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(148,163,184,0.35);
     }
     .gift-item:last-child {
       border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
     .gift-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
       color: var(--text-bright);
       margin-bottom: 6px;
@@ -204,10 +295,34 @@
     .gift-meta {
       color: var(--text-muted);
       font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    .error-text {
+      color: #fecaca;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .success-text {
+      color: #bbf7d0;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-card {
+        padding: 22px 18px 20px;
+      }
+      .stepper {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
 
@@ -224,45 +339,46 @@
       <nav>
         <a href="/">Home</a>
         <a href="/about.html">About</a>
-        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
     </header>
 
-    <!-- HERO CARD -->
+    <!-- HERO -->
     <div class="hero-card">
-      <h1 class="hero-title">Find the Perfect Gift — Instantly</h1>
-      <p>Answer a few quick questions and let AI curate thoughtful, personalized gift ideas.</p>
+      <h1 class="hero-title">Find the perfect gift in seconds.</h1>
+      <p class="hero-subtitle">
+        Tell GiftPicks AI who you’re shopping for, roughly what they like, and how you want the gift to feel.
+        Get a short, focused list of ideas you can actually use.
+      </p>
 
       <!-- STEPPER -->
       <div class="stepper">
-        <div class="step active">1. Details</div>
-        <div class="step">2. Preferences</div>
-        <div class="step">3. Results</div>
+        <div class="step active">1. Who & basics</div>
+        <div class="step">2. Interests & tone</div>
+        <div class="step">3. Curated ideas</div>
       </div>
 
       <!-- FORM -->
       <form id="giftForm">
-
         <div class="form-grid">
 
           <!-- Recipient -->
           <div class="form-row">
-            <label>Who is this gift for?</label>
+            <label for="recipientType">Who is this gift for?</label>
             <select id="recipientType">
               <option value="">Select...</option>
-              <option value="family">Family</option>
+              <option value="family">Family member</option>
               <option value="friend">Friend</option>
-              <option value="coworker">Coworker</option>
-              <option value="partner">Partner / Significant other</option>
+              <option value="coworker">Coworker / manager</option>
+              <option value="partner">Partner / significant other</option>
               <option value="other">Other</option>
             </select>
           </div>
 
           <!-- Age -->
           <div class="form-row">
-            <label>Age range (approx.)</label>
+            <label for="ageRange">Age range (approx.)</label>
             <select id="ageRange">
               <option value="">Any age</option>
               <option value="0-5">0–5</option>
@@ -275,45 +391,84 @@
             </select>
           </div>
 
-          <!-- GENDER (NEW) -->
+          <!-- Gender -->
           <div class="form-row">
-            <label>Gender</label>
+            <label for="genderPreference">Gender</label>
             <select id="genderPreference">
               <option value="">No gender preference</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
-            <p class="field-help">Optional. Helps refine suggestions.</p>
+            <p class="field-help">
+              Optional. Only use this if it truly helps narrow ideas.
+            </p>
           </div>
 
           <!-- Occasion -->
           <div class="form-row">
-            <label>Occasion</label>
+            <label for="occasion">Occasion</label>
             <select id="occasion">
               <option value="">Any occasion</option>
               <option value="birthday">Birthday</option>
               <option value="anniversary">Anniversary</option>
               <option value="holiday">Holiday</option>
               <option value="graduation">Graduation</option>
+              <option value="thank-you">Thank you</option>
               <option value="just-because">Just because</option>
             </select>
           </div>
 
-          <!-- Budget -->
+          <!-- Gift tone -->
           <div class="form-row">
-            <label>Budget range</label>
-            <input id="budgetRange" placeholder="Example: $25–$75 or 50" />
+            <label for="giftTone">Gift tone</label>
+            <select id="giftTone">
+              <option value="">No strong preference</option>
+              <option value="practical">Practical & useful</option>
+              <option value="sentimental">Sentimental / meaningful</option>
+              <option value="funny">Funny / light-hearted</option>
+              <option value="experience">Experience-based</option>
+              <option value="luxury">A bit of a splurge</option>
+            </select>
+            <p class="field-help">
+              Helps nudge the AI toward how you want the gift to feel.
+            </p>
           </div>
 
-          <!-- Interests -->
+          <!-- Budget -->
+          <div class="form-row">
+            <label for="budgetRange">Budget range</label>
+            <input id="budgetRange" placeholder="Example: $25–$75 or 50" />
+            <p class="field-help">
+              A simple number or a range both work.
+            </p>
+          </div>
+
+          <!-- Interests (chips + text) -->
           <div class="form-row">
             <label>Top interests</label>
-            <input id="customInterests" placeholder="e.g., golf, cooking, art, gaming..." />
+            <div class="chip-row" id="interestChips">
+              <button type="button" class="chip" data-value="tech & gadgets">Tech & gadgets</button>
+              <button type="button" class="chip" data-value="gaming">Gaming</button>
+              <button type="button" class="chip" data-value="sports & fitness">Sports & fitness</button>
+              <button type="button" class="chip" data-value="fashion & style">Fashion & style</button>
+              <button type="button" class="chip" data-value="beauty & self care">Beauty & self-care</button>
+              <button type="button" class="chip" data-value="home & cozy">Home & cozy</button>
+              <button type="button" class="chip" data-value="cooking & food">Cooking & food</button>
+              <button type="button" class="chip" data-value="coffee & tea">Coffee & tea</button>
+              <button type="button" class="chip" data-value="books & reading">Books & reading</button>
+              <button type="button" class="chip" data-value="music">Music</button>
+              <button type="button" class="chip" data-value="travel">Travel</button>
+              <button type="button" class="chip" data-value="DIY & crafts">DIY & crafts</button>
+            </div>
+            <input id="customInterests" placeholder="Anything specific? e.g., golf, Taylor Swift, espresso, Lego..." />
+            <p class="field-help">
+              Click a few chips and add any specific details that matter.
+            </p>
           </div>
 
           <!-- Country -->
           <div class="form-row">
-            <label>Country (optional, helps tailor products)</label>
+            <label for="country">Country / region</label>
             <select id="country">
               <option value="">Not specified</option>
               <option value="USA">USA</option>
@@ -321,66 +476,140 @@
               <option value="UK">UK</option>
               <option value="Australia">Australia</option>
               <option value="Europe">Europe</option>
+              <option value="other">Other</option>
             </select>
+            <p class="field-help">
+              Helps avoid suggestions that don’t ship easily or don’t make sense where they live.
+            </p>
           </div>
 
         </div>
 
-        <button class="button-primary" type="submit">Get Gift Ideas</button>
+        <button class="button-primary" type="submit" id="submitBtn">
+          <span id="btnLabel">Generate gift ideas</span>
+          <span id="btnSpinner" style="display:none;">Thinking…</span>
+        </button>
+        <div id="status" class="status-text"></div>
       </form>
     </div>
 
     <!-- RESULTS -->
-    <div id="resultsCard" class="results-card"></div>
+    <div id="resultsCard" class="results-card">
+      <div class="results-title">Gift ideas based on what you shared</div>
+      <div class="results-desc" id="resultsDesc">
+        You’ll see a short, curated list of ideas here once GiftPicks AI runs.
+      </div>
+      <div id="resultsList"></div>
+    </div>
 
   </div>
 
   <script>
     const form = document.getElementById("giftForm");
     const resultsCard = document.getElementById("resultsCard");
+    const resultsList = document.getElementById("resultsList");
+    const resultsDesc = document.getElementById("resultsDesc");
+    const statusEl = document.getElementById("status");
+    const submitBtn = document.getElementById("submitBtn");
+    const btnLabel = document.getElementById("btnLabel");
+    const btnSpinner = document.getElementById("btnSpinner");
+
+    // Interest chip behavior
+    const interestChips = document.querySelectorAll("#interestChips .chip");
+    interestChips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        chip.classList.toggle("active");
+      });
+    });
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      btnSpinner.style.display = isLoading ? "inline" : "none";
+      btnLabel.textContent = isLoading ? "Generating…" : "Generate gift ideas";
+    }
+
+    function showStatus(text, type) {
+      statusEl.textContent = text || "";
+      statusEl.className = type === "error" ? "status-text error-text"
+                         : type === "success" ? "status-text success-text"
+                         : "status-text";
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      showStatus("", "");
+      resultsList.innerHTML = "";
+      resultsDesc.textContent = "Generating ideas based on your inputs…";
+      resultsCard.style.display = "block";
 
       const payload = {
         recipientType: document.getElementById('recipientType').value,
         ageRange: document.getElementById('ageRange').value,
         occasion: document.getElementById('occasion').value,
         budgetRange: document.getElementById('budgetRange').value.trim(),
-        customInterests: document.getElementById('customInterests').value.trim(),
         country: document.getElementById('country').value.trim(),
-        genderPreference: document.getElementById('genderPreference').value
+        genderPreference: document.getElementById('genderPreference').value,
+        giftTone: document.getElementById('giftTone').value,
+        interestTags: Array.from(interestChips)
+          .filter(c => c.classList.contains('active'))
+          .map(c => c.dataset.value),
+        customInterests: document.getElementById('customInterests').value.trim()
       };
 
-      const userPrompt = buildPrompt(payload);
-
-      resultsCard.style.display = "block";
-      resultsCard.innerHTML = "<p>Loading gift ideas…</p>";
-
-      const res = await fetch("/api/gifts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: userPrompt })
-      });
-
-      const data = await res.json();
-
-      if (!data.gifts || !Array.isArray(data.gifts)) {
-        resultsCard.innerHTML = "<p>There was an error generating ideas.</p>";
+      if (!payload.recipientType) {
+        showStatus("Please choose who the gift is for to get more relevant ideas.", "error");
+        resultsDesc.textContent = "Waiting for details.";
         return;
       }
 
-      resultsCard.innerHTML = data.gifts
-        .map(g => `
-          <div class="gift-item">
-            <div class="gift-title">${g.title}</div>
-            <div class="gift-desc">${g.description}</div>
-            <div class="gift-meta">${g.whyItFits}</div>
-            <div class="gift-meta">Price hint: ${g.priceHint}</div>
-          </div>
-        `)
-        .join("");
+      const userPrompt = buildPrompt(payload);
+
+      try {
+        setLoading(true);
+
+        const res = await fetch("/api/gifts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: userPrompt })
+        });
+
+        if (!res.ok) {
+          throw new Error("API error");
+        }
+
+        const data = await res.json();
+        if (!data.gifts || !Array.isArray(data.gifts)) {
+          throw new Error("Unexpected response format");
+        }
+
+        if (!data.gifts.length) {
+          resultsDesc.textContent = "No ideas came back. Try loosening the budget or interests.";
+          showStatus("Try tweaking the inputs and run it again.", "error");
+          return;
+        }
+
+        renderGifts(data.gifts);
+        resultsDesc.textContent = "Here are a few ideas to get you started:";
+        showStatus("Adjust anything above and click again any time for new ideas.", "success");
+      } catch (err) {
+        console.error(err);
+        resultsDesc.textContent = "Something went wrong while generating ideas.";
+        showStatus("Error talking to the AI. Try again in a moment.", "error");
+      } finally {
+        setLoading(false);
+      }
     });
+
+    function renderGifts(gifts) {
+      resultsList.innerHTML = gifts.map(g => `
+        <div class="gift-item">
+          <div class="gift-title">${g.title || "Gift idea"}</div>
+          <div class="gift-desc">${g.description || ""}</div>
+          <div class="gift-meta">${g.whyItFits || ""}</div>
+          <div class="gift-meta"><strong>Price hint:</strong> ${g.priceHint || "Varies"}</div>
+        </div>
+      `).join("");
+    }
 
     function buildPrompt(payload) {
       const {
@@ -388,15 +617,26 @@
         ageRange,
         occasion,
         budgetRange,
-        customInterests,
         country,
-        genderPreference
+        genderPreference,
+        giftTone,
+        interestTags,
+        customInterests
       } = payload;
 
       const genderLabel =
         genderPreference === "male" ? "male"
         : genderPreference === "female" ? "female"
         : "no gender preference (keep ideas neutral)";
+
+      const toneLabel = giftTone
+        ? giftTone
+        : "no strong preference";
+
+      const combinedInterests = [
+        ...(interestTags || []),
+        customInterests || ""
+      ].filter(Boolean).join(", ");
 
       return `
 You are an expert gift consultant.
@@ -406,19 +646,28 @@ Recipient details:
 - Age range: ${ageRange || 'any'}
 - Gender: ${genderLabel}
 - Occasion: ${occasion || 'general occasion'}
+- Desired gift tone: ${toneLabel}
 - Budget: ${budgetRange || 'flexible'}
-- Interests: ${customInterests || 'none'}
+- Interests: ${combinedInterests || 'none provided'}
 - Region: ${country || 'unspecified'}
 
 Rules:
-- If gender is provided (male/female), lightly consider it in style or product category.
-- Do NOT make gender-based assumptions or stereotypes.
-- If no gender preference, keep everything neutral.
-- Give specific, practical gifts (no vague ideas).
-- Include a price hint and search term.
-- Respond **only** with valid JSON.
+- Focus on practical, realistic gifts that can be purchased online.
+- If gender is provided (male/female), you may lightly factor it into style or examples,
+  but do NOT rely on stereotypes. Prioritize their interests, tone, and budget.
+- If gender is "no gender preference", keep suggestions broadly appealing.
+- If a gift tone is given (practical, sentimental, funny, experience, luxury),
+  ensure at least one idea strongly fits that tone, and the others feel consistent with it.
+- Provide a mix of 3–6 varied ideas (e.g., not 5 very similar items).
+- Each idea should have:
+  - a clear, specific title
+  - a short description
+  - a brief explanation of why it fits this person
+  - a simple price hint (e.g. "around $40", "$50–$100")
+  - 2–5 tags like "tech", "home", "experience", "sentimental"
+  - an Amazon search term a user could copy/paste
 
-Return JSON:
+Return ONLY valid JSON with this shape:
 {
   "gifts": [
     {
@@ -431,9 +680,8 @@ Return JSON:
     }
   ]
 }
-`.trim();
+      `.trim();
     }
   </script>
-
 </body>
 </html>
