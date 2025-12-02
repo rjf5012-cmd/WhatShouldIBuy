@@ -4,4 +4,16 @@
     <loc>https://giftpicksai.com/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://giftpicksai.com/about.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/privacy.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/terms.html</loc>
+    <priority>0.4</priority>
+  </url>
 </urlset>
