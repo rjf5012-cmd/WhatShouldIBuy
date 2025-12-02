@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | GiftPicks AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact GiftPicks AI for questions, feedback, or partnership opportunities." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(15,23,42,0.9);
+      --card-border: rgba(148,163,184,0.5);
+      --accent-gradient: linear-gradient(90deg, #38bdf8, #3b82f6, #a855f7);
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-bright: #f9fafb;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.25) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.28) 0, transparent 55%),
+        var(--bg-gradient);
+      color: var(--text-light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+      padding: 32px 0 80px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      height: 56px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-name {
+      color: var(--text-bright);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-tagline {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #ffffff;
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+    }
+    nav a.active {
+      border-color: rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
+    }
+
+    /* MAIN CARD */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 26px 24px 28px;
+      box-shadow: 0 30px 80px rgba(15,23,42,0.7);
+    }
+
+    .page-title {
+      font-size: clamp(26px, 3vw, 30px);
+      font-weight: 700;
+      margin: 4px 0 8px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 540px;
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+    }
+    .section p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      padding: 9px 14px;
+      font-size: 14px;
+      border-radius: 999px;
+      background: rgba(15,23,42,1);
+      border: 1px solid rgba(148,163,184,0.9);
+      color: var(--text-bright);
+      text-decoration: none;
+      transition: 0.18s;
+    }
+    .email-link:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 16px 40px rgba(56,189,248,0.55);
+      transform: translateY(-1px);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(15,23,42,1);
+      border: 1px solid rgba(148,163,184,0.7);
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 26px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      padding-top: 14px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .footer-links a:hover {
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .card {
+        padding: 22px 18px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI Logo" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-name">GiftPicks AI</div>
+          <div class="brand-tagline">AI-powered gift suggestions</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <!-- CONTACT CARD -->
+    <main class="card">
+      <h1 class="page-title">Contact GiftPicks AI</h1>
+      <p class="page-subtitle">
+        Have feedback, found a bug, or interested in partnering? We’d love to hear from you.
+        The fastest way to reach us is by email.
+      </p>
+
+      <section class="section">
+        <div class="section-title">General questions & feedback</div>
+        <p>
+          For product feedback, feature requests, or general questions about GiftPicks AI,
+          email us anytime:
+        </p>
+        <a class="email-link" href="mailto:hello@giftpicksai.com">
+          <span>hello@giftpicksai.com</span>
+        </a>
+        <p class="pill">Typical response time: 1–2 business days</p>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Partnerships & collaboration</div>
+        <p>
+          If you’re interested in partnerships, integrations, or featuring GiftPicks AI in your content,
+          please include <strong>“Partnership”</strong> in the email subject line so we can route it correctly.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Reporting an issue</div>
+        <p>
+          If something on the site isn’t working as expected, please include:
+        </p>
+        <ul style="margin: 4px 0 0 18px; padding: 0; font-size: 14px; color: var(--text-light);">
+          <li>What you were trying to do</li>
+          <li>Any error message you saw</li>
+          <li>Your device and browser (e.g., iPhone / Safari, Windows / Chrome)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">DMCA & legal</div>
+        <p>
+          For formal legal or DMCA notices, please send an email with
+          <strong>“DMCA”</strong> in the subject line so it can be reviewed promptly.
+        </p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© <span id="year"></span> GiftPicks AI. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
