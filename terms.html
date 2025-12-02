@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <title>Terms of Use | GiftPicks AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Terms of use for GiftPicks AI, outlining how you may use this website and its content." />
+  <meta name="description" content="Terms of use for GiftPicks AI, including disclaimers and acceptable use." />
   <link rel="canonical" href="https://giftpicksai.com/terms.html" />
   <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
 
   <style>
     :root {
       --bg: #f3f4f8;
+      --bg-soft: #eef1f7;
       --card-bg: #ffffff;
       --accent: #2563eb;
       --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-border: rgba(37,99,235,0.2);
+      --accent-strong: #1d4ed8;
+      --accent-border: rgba(37, 99, 235, 0.2);
       --text-main: #0f172a;
       --text-muted: #6b7280;
       --border-subtle: #e2e5ee;
@@ -36,5 +38,274 @@
     a { color: inherit; }
 
     .page {
-      max-width: 860px;
-      margin: 0 auto
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      display: block;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18));
+    }
+
+    @media (min-width: 800px) {
+      .brand-logo { height: 44px; }
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      transition: background 0.16s ease-out, color 0.16s ease-out;
+    }
+
+    .nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .nav-highlight {
+      border: 1px solid var(--accent-border);
+      background: rgba(255,255,255,0.65);
+    }
+
+    main { flex: 1; }
+
+    .card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,246,255,0.98));
+      border-radius: 24px;
+      padding: 22px 22px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.95);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 11px;
+      font-weight: 500;
+      border: 1px solid var(--accent-border);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 4px 0 8px;
+    }
+
+    ul {
+      margin: 4px 0 10px;
+      padding-left: 18px;
+    }
+
+    li {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #e1e4ef;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html" class="nav-highlight">Terms</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="badge">Terms of Use</div>
+        <h1>GiftPicks AI Terms of Use</h1>
+        <p><em>Last updated: December 2025</em></p>
+
+        <h2>1. Acceptance of terms</h2>
+        <p>
+          By accessing or using GiftPicks AI (“the Service”), you agree to be bound by these Terms of Use.
+          If you do not agree with these terms, you should not use the Service.
+        </p>
+
+        <h2>2. Description of the Service</h2>
+        <p>
+          GiftPicks AI is an informational tool that uses artificial intelligence to generate gift ideas based
+          on high-level information you provide. The suggestions are intended as a starting point only and are
+          not guarantees of suitability, availability, or quality.
+        </p>
+
+        <h2>3. No professional advice</h2>
+        <p>
+          The Service does not provide professional financial, legal, psychological, or relationship advice.
+          All suggestions should be considered general information. You are solely responsible for evaluating
+          whether a given gift idea is appropriate for your situation and for the recipient.
+        </p>
+
+        <h2>4. Third-party products and links</h2>
+        <p>
+          GiftPicks AI may include links to third-party websites (such as online retailers). We do not own
+          or control these sites and are not responsible for:
+        </p>
+        <ul>
+          <li>Product descriptions, pricing, or availability.</li>
+          <li>Shipping options, delivery times, or return policies.</li>
+          <li>The accuracy or reliability of third-party content.</li>
+        </ul>
+        <p>
+          Any purchases you make from third-party sites are governed by their terms and conditions, not ours.
+        </p>
+
+        <h2>5. Affiliate disclosures</h2>
+        <p>
+          Some outbound links may be affiliate links. If you make a qualifying purchase after clicking one of
+          those links, GiftPicks AI may earn a small commission. This does not affect the price you pay.
+        </p>
+
+        <h2>6. Acceptable use</h2>
+        <p>
+          You agree not to misuse the Service. For example, you will not:
+        </p>
+        <ul>
+          <li>Attempt to interfere with or disrupt the operation of the site.</li>
+          <li>Use automated scripts or scraping tools in a way that harms performance or stability.</li>
+          <li>Reverse engineer or attempt to circumvent security or rate limits.</li>
+          <li>Use the Service to generate or share unlawful, harmful, or abusive content.</li>
+        </ul>
+
+        <h2>7. Intellectual property</h2>
+        <p>
+          The GiftPicks AI logo, branding, and underlying site design are owned by the site owner. You may not
+          copy, reproduce, or reuse the design or branding without permission, except as allowed by applicable law.
+        </p>
+
+        <h2>8. Disclaimer of warranties</h2>
+        <p>
+          The Service is provided on an “as is” and “as available” basis, without warranties of any kind, whether
+          express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of
+          harmful components.
+        </p>
+
+        <h2>9. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, GiftPicks AI and its operators will not be liable for any indirect,
+          incidental, special, consequential, or punitive damages, or any loss of profits or data, arising out of or
+          in connection with your use of the Service.
+        </p>
+
+        <h2>10. Changes to the Service and terms</h2>
+        <p>
+          We may modify or discontinue the Service at any time, with or without notice. We may also update these
+          Terms of Use from time to time. When we do, we will update the “Last updated” date above. Continued use
+          of the Service after changes means you accept the updated terms.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          If you have questions about these terms, you can contact us at:
+        </p>
+        <p><strong>Email:</strong> hello@giftpicksai.com</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> GiftPicks AI.</div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
