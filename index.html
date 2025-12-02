@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>GiftPicks AI | Smart Gift Ideas, Powered by AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Find the perfect gift instantly with GiftPicks AI. Powered by advanced AI to deliver thoughtful, personalized gift ideas for any budget, person, or occasion." />
+  <meta name="description" content="Find the perfect gift instantly with GiftPicks AI. Powered by AI to deliver thoughtful, personalized gift ideas for any budget, person, or occasion." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
@@ -15,7 +15,6 @@
       --card-bg: rgba(15,23,42,0.9);
       --card-border: rgba(148,163,184,0.5);
       --accent-gradient: linear-gradient(90deg, #38bdf8, #3b82f6, #a855f7);
-      --accent-soft: rgba(59,130,246,0.15);
       --text-light: #e2e8f0;
       --text-muted: #94a3b8;
       --text-bright: #f9fafb;
@@ -249,6 +248,12 @@
       font-size: 13px;
       color: var(--text-muted);
     }
+    .error-text {
+      color: #fecaca;
+    }
+    .success-text {
+      color: #bbf7d0;
+    }
 
     /* RESULTS */
     .results-card {
@@ -298,15 +303,67 @@
       margin-bottom: 2px;
     }
 
-    .error-text {
-      color: #fecaca;
-      font-size: 13px;
+    /* INFO CONTENT SECTION */
+    .info-card {
+      margin-top: 30px;
+      padding: 22px 22px 24px;
+      background: rgba(15,23,42,0.92);
+      border-radius: 20px;
+      border: 1px solid rgba(148,163,184,0.45);
+      backdrop-filter: blur(14px);
+    }
+    .info-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+    }
+    .info-body {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .info-list {
+      margin: 6px 0 0 18px;
+      padding: 0;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    .info-list li {
+      margin-bottom: 4px;
+    }
+    .info-muted {
+      font-size: 12px;
+      color: var(--text-muted);
       margin-top: 8px;
     }
-    .success-text {
-      color: #bbf7d0;
-      font-size: 13px;
-      margin-top: 8px;
+
+    /* FOOTER */
+    footer {
+      margin-top: 26px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      padding-top: 14px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .footer-links a:hover {
+      color: var(--text-light);
+      text-decoration: underline;
     }
 
     @media (max-width: 720px) {
@@ -314,7 +371,9 @@
         flex-direction: column;
         align-items: flex-start;
       }
-      .hero-card {
+      .hero-card,
+      .results-card,
+      .info-card {
         padding: 22px 18px 20px;
       }
       .stepper {
@@ -341,6 +400,7 @@
         <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
       </nav>
     </header>
 
@@ -348,7 +408,7 @@
     <div class="hero-card">
       <h1 class="hero-title">Find the perfect gift in seconds.</h1>
       <p class="hero-subtitle">
-        Tell GiftPicks AI who you’re shopping for, roughly what they like, and how you want the gift to feel.
+        Tell GiftPicks AI who you’re shopping for, what they like, and how you want the gift to feel.
         Get a short, focused list of ideas you can actually use.
       </p>
 
@@ -502,6 +562,44 @@
       <div id="resultsList"></div>
     </div>
 
+    <!-- INFO CONTENT SECTION -->
+    <section class="info-card" aria-label="About GiftPicks AI">
+      <h2 class="info-title">What is GiftPicks AI?</h2>
+      <p class="info-body">
+        GiftPicks AI is a simple tool that helps you turn “I have no idea what to buy” into a short,
+        focused list of gift ideas. Instead of scrolling endless lists, you answer a few quick questions
+        about who you’re shopping for, your budget, and their interests. The AI then generates ideas that
+        are tailored to the person, the occasion, and how you want the gift to feel.
+      </p>
+      <p class="info-body">
+        Behind the scenes, GiftPicks AI uses large language models to combine your inputs
+        (like recipient type, age range, interests, and tone) into a set of concrete suggestions.
+        Each idea is designed to be something you could actually buy online, with a rough price range
+        and a search term you can use on your favorite shopping site.
+      </p>
+      <ul class="info-list">
+        <li>Smarter than generic “top 100 gifts” posts.</li>
+        <li>Fast enough to use right before a birthday or holiday.</li>
+        <li>Flexible enough to work for any relationship or budget.</li>
+      </ul>
+      <p class="info-muted">
+        Note: GiftPicks AI doesn’t track who your recipient is or store any personal identity information.
+        The tool only works with the preferences and context you choose to share in the form above.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© <span id="year"></span> GiftPicks AI. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
+
   </div>
 
   <script>
@@ -513,6 +611,9 @@
     const submitBtn = document.getElementById("submitBtn");
     const btnLabel = document.getElementById("btnLabel");
     const btnSpinner = document.getElementById("btnSpinner");
+
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     // Interest chip behavior
     const interestChips = document.querySelectorAll("#interestChips .chip");
@@ -530,9 +631,9 @@
 
     function showStatus(text, type) {
       statusEl.textContent = text || "";
-      statusEl.className = type === "error" ? "status-text error-text"
-                         : type === "success" ? "status-text success-text"
-                         : "status-text";
+      statusEl.className = "status-text";
+      if (type === "error") statusEl.classList.add("error-text");
+      if (type === "success") statusEl.classList.add("success-text");
     }
 
     form.addEventListener("submit", async (e) => {
