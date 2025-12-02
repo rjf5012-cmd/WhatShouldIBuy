@@ -11,7 +11,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
 
   <style>
     :root {
@@ -59,8 +59,10 @@
       gap: 14px;
     }
     .brand-logo {
-      height: 56px;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+      height: 60px;
+      width: 60px;
+      border-radius: 22px;
+      filter: drop-shadow(0 6px 18px rgba(15,23,42,0.9));
     }
     .brand-text {
       display: flex;
@@ -69,7 +71,7 @@
     }
     .brand-name {
       color: var(--text-bright);
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
@@ -154,14 +156,12 @@
       display: grid;
       gap: 16px;
     }
-
     .form-row label {
       font-size: 14px;
       font-weight: 500;
       display: block;
       margin-bottom: 4px;
     }
-
     .form-row select,
     .form-row input {
       width: 100%;
@@ -174,14 +174,12 @@
       outline: none;
       transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
-
     .form-row select:focus,
     .form-row input:focus {
       border-color: #38bdf8;
       box-shadow: 0 0 0 1px rgba(56,189,248,0.7);
       background: rgba(15,23,42,1);
     }
-
     .field-help {
       font-size: 12px;
       margin-top: 4px;
@@ -393,9 +391,7 @@
       text-decoration: none;
       font-size: 12px;
     }
-    .cookie-banner a:hover {
-      text-decoration: underline;
-    }
+    .cookie-banner a:hover { text-decoration: underline; }
     .cookie-banner button {
       border: none;
       border-radius: 999px;
@@ -438,7 +434,7 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI Logo" class="brand-logo" />
+        <img src="/logo-giftpicksai.png" alt="GiftPicks AI Logo" class="brand-logo" />
         <div class="brand-text">
           <div class="brand-name">GiftPicks AI</div>
           <div class="brand-tagline">AI-powered gift suggestions</div>
@@ -613,7 +609,7 @@
       <div id="resultsList"></div>
     </div>
 
-    <!-- INFO CONTENT SECTION (updated SEO copy) -->
+    <!-- INFO CONTENT SECTION -->
     <div class="info-card">
       <div class="info-item">
         <h3>What Is GiftPicks AI?</h3>
@@ -694,10 +690,10 @@
     const btnLabel = document.getElementById("btnLabel");
     const btnSpinner = document.getElementById("btnSpinner");
 
-    // Year in footer
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Interest chip behavior
+    // Chips
     const interestChips = document.querySelectorAll("#interestChips .chip");
     interestChips.forEach(chip => {
       chip.addEventListener("click", () => {
@@ -866,7 +862,7 @@ Return ONLY valid JSON with this shape:
       `.trim();
     }
 
-    // COOKIE BANNER LOGIC
+    // COOKIE BANNER
     (function() {
       const banner = document.getElementById("cookieBanner");
       const acceptBtn = document.getElementById("cookieAccept");
@@ -878,9 +874,7 @@ Return ONLY valid JSON with this shape:
           banner.style.display = "none";
           return;
         }
-      } catch (e) {
-        // localStorage might not be available; show banner anyway
-      }
+      } catch (e) {}
 
       banner.style.display = "flex";
 
