@@ -2,28 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About GiftPicks AI</title>
+  <title>About | GiftPicks AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Learn more about GiftPicks AI, an AI-powered tool that helps you find thoughtful gift ideas in seconds." />
+  <meta name="description" content="Learn what GiftPicks AI is, how it works, and how we use AI and affiliate links to suggest thoughtful gifts." />
   <link rel="canonical" href="https://giftpicksai.com/about.html" />
-  <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+  <link rel="alternate icon" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About GiftPicks AI" />
+  <meta property="og:description" content="GiftPicks AI helps you find thoughtful gift ideas in seconds using AI." />
+  <meta property="og:url" content="https://giftpicksai.com/about.html" />
+  <meta property="og:image" content="https://giftpicksai.com/og-image.png" />
 
   <style>
     :root {
-      --bg: #f3f4f8;
-      --bg-soft: #eef1f7;
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-strong: #1d4ed8;
-      --accent-border: rgba(37, 99, 235, 0.2);
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --border-subtle: #e2e5ee;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-md: 12px;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --accent: #3B82F6;
+      --accent-2: #A855F7;
+      --text-on-dark: #E5F0FF;
+      --text-muted: #9CA3AF;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.4);
+      --radius-lg: 22px;
       --radius-pill: 999px;
+      --transition-fast: 0.16s ease-out;
     }
 
     * { box-sizing: border-box; }
@@ -31,44 +36,76 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #e5e7f0 100%);
-      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.24) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.25) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(52, 211, 153, 0.12) 0, transparent 65%),
+        var(--bg-alt);
+      color: var(--text-on-dark);
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; }
 
     .page {
-      max-width: 840px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
+      padding: 22px 16px 40px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    .frame {
+      border-radius: 30px;
+      padding: 18px 18px 22px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.85));
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(22px);
+      min-height: 100%;
     }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 20px;
+      margin-bottom: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .brand-logo {
       display: block;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18));
+      height: 50px;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.4));
     }
 
     @media (min-width: 800px) {
-      .brand-logo { height: 44px; }
+      .brand-logo { height: 56px; }
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      color: #E5F0FF;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      color: rgba(148, 163, 184, 0.96);
     }
 
     .nav {
@@ -82,90 +119,95 @@
 
     .nav a {
       text-decoration: none;
-      color: var(--text-muted);
-      padding: 6px 10px;
+      color: rgba(226, 232, 240, 0.9);
+      padding: 6px 11px;
       border-radius: var(--radius-pill);
-      transition: background 0.16s ease-out, color 0.16s ease-out;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
 
     .nav a:hover {
-      background: var(--accent-soft);
-      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+      color: #E5F0FF;
+      transform: translateY(-1px);
     }
 
     .nav-highlight {
-      border: 1px solid var(--accent-border);
-      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.32), rgba(15, 23, 42, 0.95));
     }
 
     main { flex: 1; }
 
-    .card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,246,255,0.98));
-      border-radius: 24px;
-      padding: 22px 22px 20px;
+    .content-card {
+      border-radius: var(--radius-lg);
+      padding: 26px 24px 24px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 60%),
+                  radial-gradient(circle at top right, rgba(168, 85, 247, 0.28), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255,255,255,0.95);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-      font-size: 11px;
-      font-weight: 500;
-      border: 1px solid var(--accent-border);
-      margin-bottom: 10px;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
     }
 
     h1 {
-      font-size: 24px;
       margin: 0 0 8px;
+      font-size: clamp(24px, 3vw, 30px);
       letter-spacing: -0.02em;
     }
 
+    h1 span {
+      background: linear-gradient(135deg, #38BDF8, #A855F7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
     h2 {
-      font-size: 17px;
-      margin-top: 18px;
+      margin-top: 20px;
       margin-bottom: 6px;
+      font-size: 17px;
     }
 
     p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin: 4px 0 8px;
+      margin: 6px 0;
+      font-size: 14px;
+      color: rgba(226, 232, 240, 0.92);
     }
 
     ul {
-      margin: 4px 0 10px;
-      padding-left: 18px;
+      margin: 8px 0 8px 18px;
+      padding: 0;
+      font-size: 14px;
+      color: rgba(226, 232, 240, 0.9);
     }
 
-    li {
+    li { margin-bottom: 4px; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 14px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.85);
+      color: rgba(226, 232, 240, 0.9);
+    }
+
+    .muted {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 4px;
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 22px;
       padding-top: 12px;
-      border-top: 1px solid #e1e4ef;
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
     }
 
     .footer-inner {
@@ -177,114 +219,111 @@
     }
 
     .footer-links a {
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
       text-decoration: none;
       margin-left: 10px;
     }
 
-    .footer-links a:hover { text-decoration: underline; }
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #E5E7EB;
+    }
 
     @media (max-width: 720px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      .nav {
-        justify-content: flex-start;
-      }
+      .nav { justify-content: flex-start; }
+      .content-card { padding: 22px 18px 20px; }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
-      </div>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/about.html" class="nav-highlight">About</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="card">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          About GiftPicks AI
+    <div class="frame">
+      <header>
+        <div class="brand">
+          <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
+          <div class="brand-text">
+            <div class="brand-name">GiftPicks AI</div>
+            <div class="brand-tagline">AI-powered gift suggestions</div>
+          </div>
         </div>
-        <h1>Our goal: make gift shopping easier, not noisier</h1>
-        <p>
-          GiftPicks AI was created to solve a familiar problem: finding a thoughtful gift often
-          turns into multiple tabs, endless “top 100 gifts” lists, and a lot of second-guessing.
-        </p>
-        <p>
-          Instead of throwing dozens of random ideas at you, GiftPicks AI asks a few targeted questions
-          about who you’re shopping for, your budget, and what they care about. From there, the system
-          generates a small, focused list of suggestions—with a short explanation of <strong>why</strong> each idea
-          might be a good fit.
-        </p>
-
-        <h2>How GiftPicks AI works</h2>
-        <p>When you use the tool on the homepage, GiftPicks AI:</p>
-        <ul>
-          <li>Takes in simple details like relationship, age range, interests, and your budget.</li>
-          <li>Builds a structured prompt for an AI model based on your answers.</li>
-          <li>Generates several gift ideas and explains the reasoning behind each one.</li>
-          <li>Creates Amazon search links so you can quickly browse matching products.</li>
-        </ul>
-        <p>
-          There’s no account, no long questionnaire, and no commitment. You can rerun the tool as many
-          times as you’d like with different inputs until something clicks.
-        </p>
-
-        <h2>Why some links are affiliate links</h2>
-        <p>
-          GiftPicks AI may use affiliate links for certain outbound shopping links (for example, to Amazon).
-          This means we may earn a small commission if you make a qualifying purchase through one of those
-          links, at no extra cost to you.
-        </p>
-        <p>
-          These commissions help cover hosting, development, and ongoing improvements to the product.
-          You are always free to ignore the links and search for the items on your own—we simply aim
-          to make it faster to go from a good idea to an actual purchase.
-        </p>
-
-        <h2>What GiftPicks AI is—and isn’t</h2>
-        <p>GiftPicks AI is:</p>
-        <ul>
-          <li>A quick way to brainstorm gift ideas that match a real person, not just a demographic.</li>
-          <li>A simple, no-login tool you can use before birthdays, holidays, and special events.</li>
-          <li>A starting point to narrow options, not a guarantee of the single “perfect” gift.</li>
-        </ul>
-        <p>GiftPicks AI is <strong>not</strong>:</p>
-        <ul>
-          <li>A replacement for your own judgment or knowledge of the recipient.</li>
-          <li>Responsible for product quality, availability, pricing, or shipping from third-party retailers.</li>
-          <li>A source of professional financial, legal, or relationship advice.</li>
-        </ul>
-
-        <h2>Questions or feedback?</h2>
-        <p>
-          If you have suggestions, spot an issue, or just want to share how you used GiftPicks AI,
-          we’d be glad to hear from you.
-        </p>
-        <p><strong>Contact:</strong> hello@giftpicksai.com</p>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> GiftPicks AI.</div>
-        <div class="footer-links">
+        <nav class="nav">
+          <a href="/" class="nav-highlight">Start</a>
+          <a href="/index.html#faq">FAQ</a>
           <a href="/about.html">About</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="content-card">
+          <h1>About <span>GiftPicks AI</span></h1>
+          <p>
+            GiftPicks AI is a small, focused tool built to solve a familiar problem:
+            <strong>you need a thoughtful gift, but you don’t have hours to scroll through generic lists.</strong>
+          </p>
+          <p>
+            Instead of dumping 100+ “ideas” on you, GiftPicks AI asks for a few practical details and uses AI
+            to generate a <strong>short, curated list</strong> of gift suggestions with clear explanations and
+            links you can explore on your own.
+          </p>
+
+          <div class="pill-row">
+            <div class="pill">AI-assisted, human-edited prompts</div>
+            <div class="pill">3–6 ideas per run</div>
+            <div class="pill">No login or account required</div>
+          </div>
+
+          <h2>How it works</h2>
+          <ul>
+            <li>You share a few details: who you’re buying for, rough age, occasion, budget, and interests.</li>
+            <li>We turn that into a structured prompt and send it to an AI model.</li>
+            <li>The model returns several concrete gift ideas with short explanations.</li>
+            <li>We format them into cards with quick at-a-glance details and a link to keep browsing.</li>
+          </ul>
+
+          <h2>Why the list is intentionally short</h2>
+          <p>
+            GiftPicks AI is designed to help you get <em>unstuck</em>, not to replace your judgement.
+            A smaller list keeps the cognitive load low and makes it easier to quickly pick 1–2 strong options.
+          </p>
+
+          <h2>Affiliate links and monetization</h2>
+          <p>
+            Some outbound links on GiftPicks AI may be affiliate links. If you click a link and make a qualifying
+            purchase, the site may earn a small commission at no additional cost to you.
+          </p>
+          <p class="muted">
+            These commissions help keep the tool online and free to use. You are always free to take any idea and
+            search for it directly on your preferred retailer instead.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            If you have questions, notice anything incorrect, or want to suggest improvements, you can reach the
+            site owner using the contact details provided in the site footer or via the domain’s WHOIS contact
+            information.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
+          </div>
+          <div class="footer-links">
+            <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 
   <script>
