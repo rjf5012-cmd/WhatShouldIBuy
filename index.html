@@ -151,6 +151,85 @@
       flex: 1;
     }
 
+    /* STEPPER ---------------------------------------------------- */
+
+    .stepper {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.3), transparent 60%),
+                  radial-gradient(circle at right, rgba(168, 85, 247, 0.3), transparent 60%),
+                  rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 18px;
+    }
+
+    .stepper-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+      color: rgba(226, 232, 240, 0.96);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .stepper-step:nth-child(2) {
+      justify-content: center;
+    }
+
+    .stepper-step:nth-child(3) {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .stepper-icon {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, #38BDF8, #6366F1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #F9FAFB;
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.9);
+    }
+
+    .stepper-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stepper-label {
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .stepper-desc {
+      font-size: 10px;
+      color: rgba(148, 163, 184, 0.95);
+    }
+
+    @media (max-width: 720px) {
+      .stepper {
+        flex-direction: column;
+        border-radius: 18px;
+      }
+      .stepper-step,
+      .stepper-step:nth-child(2),
+      .stepper-step:nth-child(3) {
+        justify-content: flex-start;
+        text-align: left;
+      }
+    }
+
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
@@ -727,6 +806,31 @@
           <a href="/terms.html">Terms</a>
         </nav>
       </header>
+
+      <!-- Stepper strip -->
+      <div class="stepper" aria-label="How GiftPicks AI works">
+        <div class="stepper-step">
+          <div class="stepper-icon">1</div>
+          <div class="stepper-text">
+            <div class="stepper-label">Describe them</div>
+            <div class="stepper-desc">Who they are, what they like, your budget.</div>
+          </div>
+        </div>
+        <div class="stepper-step">
+          <div class="stepper-icon">2</div>
+          <div class="stepper-text">
+            <div class="stepper-label">Run GiftPicks AI</div>
+            <div class="stepper-desc">We turn your details into a focused AI prompt.</div>
+          </div>
+        </div>
+        <div class="stepper-step">
+          <div class="stepper-icon">3</div>
+          <div class="stepper-text">
+            <div class="stepper-label">Browse & buy</div>
+            <div class="stepper-desc">Scan a short list of ideas and click through to shop.</div>
+          </div>
+        </div>
+      </div>
 
       <main>
         <div class="layout">
