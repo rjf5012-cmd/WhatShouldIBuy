@@ -121,6 +121,8 @@
       align-items: center;
       gap: 12px;
       font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -551,7 +553,7 @@
 
     footer {
       margin-top: 18px;
-      padding: 12px 0 10px;
+      padding-top: 12px;
       border-top: 1px solid #e1e4ef;
       font-size: 11px;
       color: var(--text-muted);
@@ -581,7 +583,6 @@
         align-items: flex-start;
       }
       .nav-links {
-        width: 100%;
         justify-content: flex-start;
       }
       .hero-card, .results-card, .faq-card {
@@ -603,7 +604,9 @@
       <nav class="nav-links">
         <a href="#how-it-works">How it works</a>
         <a href="#faq">FAQ</a>
-        <a href="#privacy">Privacy</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
       </nav>
     </header>
 
@@ -777,18 +780,6 @@
           </div>
         </div>
       </section>
-
-      <section class="faq-card" id="privacy">
-        <h2 class="faq-title">Privacy & data</h2>
-        <p>
-          GiftPicks AI focuses on simple details like age range, interests, and budget. It doesn’t need names or contact info
-          to work.
-        </p>
-        <p style="font-size:11px;">
-          Avoid entering sensitive or personal information. If you add a dedicated privacy policy page later, you can link it here
-          for a more detailed explanation of analytics, cookies, and affiliate tracking.
-        </p>
-      </section>
     </main>
 
     <footer>
@@ -797,8 +788,9 @@
           © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
         </div>
         <div class="footer-links">
-          <a href="#privacy">Privacy</a>
-          <a href="#faq">FAQ</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
         </div>
       </div>
     </footer>
