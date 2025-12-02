@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Optional: Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT_ID"
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
+  <title>AI Gift Finder | Smart Gift Ideas in Seconds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Use AI to find the perfect gift in seconds. Tell us who you’re shopping for, your budget, and their interests – get tailored gift ideas with direct shopping links." />
+
+  <!-- Canonical (replace with your real URL) -->
+  <link rel="canonical" href="https://www.example.com/" />
+
+  <!-- Favicon (replace with your own) -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Gift Finder | Smart Gift Ideas in Seconds" />
+  <meta property="og:description" content="Answer a few questions and let AI suggest thoughtful gift ideas based on age, interests, and budget." />
+  <meta property="og:url" content="https://www.example.com/" />
+  <meta property="og:image" content="https://www.example.com/og-image.png" />
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI Gift Finder",
+    "url": "https://www.example.com/",
+    "description": "A simple AI-powered tool that suggests personalized gift ideas based on recipient, occasion, interests, and budget.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.example.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050815;
+      --bg-alt: #0c1020;
+      --card: #11182a;
+      --accent: #ff6f61;
+      --accent-soft: rgba(255, 111, 97, 0.15);
+      --accent-strong: #ff887b;
+      --text: #f7f8fc;
+      --muted: #aab1c6;
+      --border-subtle: #222b3f;
+      --error: #ff5c7a;
+      --success: #35d0a3;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --shadow-subtle: 0 10px 24px rgba(0, 0, 0, 0.3);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #18213a 0, #050815 52%, #02030a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      flex: 1;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0, #ffe9e5 0, #ff6f61 35%, #b8324f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: -60%;
+      left: -60%;
+      background: conic-gradient(from 0deg, rgba(255,255,255,0.2), transparent 45%, transparent 75%, rgba(255,255,255,0.15), transparent);
+      transform: rotate(28deg);
+      filter: blur(4px);
+    }
+
+    .logo-mark span {
+      position: relative;
+      font-size: 18px;
+    }
+
+    .logo-text-title {
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      font-size: 18px;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      border-color: var(--border-subtle);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .pill-badge {
+      align-self: flex-start;
+      padding: 4px 12px 4px 4px;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 255, 191, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--success);
+      font-size: 11px;
+      border: 1px solid rgba(53, 208, 163, 0.28);
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e6fff7 0, #35d0a3 40%, #135b48 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 34px;
+    }
+
+    .hero-main {
+      padding: 24px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(17, 26, 52, 0.96), rgba(8, 11, 25, 0.98));
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3vw, 32px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #ffb199, #ff6f61, #ffe693);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 460px;
+    }
+
+    .hero-subtitle strong {
+      color: #f9fafc;
+      font-weight: 500;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      margin-bottom: 12px;
+    }
+
+    .hero-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(3, 6, 18, 0.6);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-stats span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-stats span strong {
+      font-size: 13px;
+      color: #f3f5ff;
+      font-weight: 550;
+    }
+
+    .form-card {
+      padding: 18px 16px 16px;
+      margin-top: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(3, 7, 20, 0.9);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .field-help {
+      font-size: 11px;
+      color: #8088a0;
+    }
+
+    select, input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 9px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(4, 6, 18, 0.95);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    select:focus, input:focus, textarea:focus {
+      border-color: rgba(255, 111, 97, 0.8);
+      box-shadow: 0 0 0 1px rgba(255, 111, 97, 0.5);
+      background: rgba(2, 4, 14, 1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 54px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7, 10, 26, 0.9);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .chip:hover {
+      border-color: rgba(255,255,255,0.25);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .chip.chip-active {
+      background: var(--accent-soft);
+      border-color: rgba(255, 111, 97, 0.8);
+      color: #ffe9e5;
+    }
+
+    .btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    button.primary-btn {
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #1b0200;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 30px rgba(255,111,97,0.35);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    button.primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(255,111,97,0.45);
+    }
+
+    button.primary-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 22px rgba(255,111,97,0.4);
+    }
+
+    button.primary-btn:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-secondary {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #252b4b 0, #0a0f1f 55%, #050814 100%);
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .preview-header {
+      font-size: 13px;
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+
+    .preview-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .preview-card {
+      border-radius: 14px;
+      padding: 14px 13px;
+      background: rgba(3, 6, 20, 0.95);
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .preview-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #ffe2d6, #ff9a7a, #ff6f61);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 32% 10% -40%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), transparent);
+      opacity: 0.5;
+    }
+
+    .preview-title {
+      font-size: 13px;
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+
+    .preview-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .preview-meta span + span::before {
+      content: "•";
+      margin: 0 5px;
+      color: #5b6380;
+    }
+
+    .preview-body {
+      font-size: 12px;
+      color: #d4daea;
+      margin-bottom: 4px;
+    }
+
+    .preview-why {
+      font-size: 11px;
+      color: #9fa6c0;
+      margin-bottom: 6px;
+    }
+
+    .preview-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+
+    .preview-link {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 11px;
+      color: #ffe7df;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preview-link span {
+      font-size: 13px;
+    }
+
+    .preview-note {
+      font-size: 10px;
+      color: #8087a1;
+    }
+
+    .results-section {
+      margin-top: 8px;
+    }
+
+    .results-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .results-title {
+      font-size: 14px;
+      font-weight: 550;
+    }
+
+    .results-status {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .gift-card {
+      border-radius: 14px;
+      padding: 12px 11px 11px;
+      background: rgba(3, 6, 20, 0.95);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gift-title {
+      font-size: 13px;
+      font-weight: 550;
+      margin-bottom: 2px;
+    }
+
+    .gift-price {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .gift-desc {
+      font-size: 12px;
+      color: #d8def1;
+    }
+
+    .gift-why {
+      font-size: 11px;
+      color: #9fa6c0;
+    }
+
+    .gift-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .gift-tag {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #c3c8de;
+    }
+
+    .gift-footer {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .gift-link {
+      text-decoration: none;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ffe9e5;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.02);
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .gift-link:hover {
+      background: rgba(255,111,97,0.14);
+      border-color: rgba(255,111,97,0.7);
+      transform: translateY(-1px);
+    }
+
+    .disclaimer {
+      font-size: 10px;
+      color: #8087a1;
+    }
+
+    .faq-section {
+      margin-top: 32px;
+      padding: 18px 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(4, 7, 20, 0.95);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .faq-title {
+      font-size: 15px;
+      font-weight: 550;
+      margin-bottom: 6px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .faq-item strong {
+      color: #e9ecff;
+      font-weight: 550;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 14px 16px 24px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: inherit;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .error-text {
+      font-size: 11px;
+      color: var(--error);
+      margin-top: 4px;
+    }
+
+    .success-text {
+      font-size: 11px;
+      color: var(--success);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-main {
+        order: 1;
+      }
+      .hero-secondary {
+        order: 2;
+      }
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">
+          <span>🎁</span>
+        </div>
+        <div>
+          <div class="logo-text-title">AI Gift Finder</div>
+          <div class="logo-text-sub">Thoughtful gifts in under 10 seconds</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-main">
+          <div class="pill-badge">
+            <div class="pill-dot">✨</div>
+            AI-powered gift ideas from your budget, not a random list.
+          </div>
+
+          <h1 class="hero-title">
+            Stop guessing gifts. <span>Let AI pick for you.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Answer a few quick questions about who you’re shopping for. In seconds, you’ll get tailored gift ideas with
+            <strong>why they’re a good fit</strong> and direct links to buy.
+          </p>
+
+          <div class="hero-bullets">
+            <div class="hero-pill">🎯 Personalized by age, interests, and budget</div>
+            <div class="hero-pill">💡 3–6 ideas per search</div>
+            <div class="hero-pill">🛒 Ready to shop in a click</div>
+          </div>
+
+          <div class="hero-stats">
+            <span><strong>Occasions:</strong> birthdays, holidays, anniversaries &amp; more</span>
+            <span><strong>Works for:</strong> partners, kids, friends, coworkers</span>
+          </div>
+
+          <form class="form-card" id="gift-form">
+            <div class="form-row">
+              <label for="recipientType">Who is this gift for?</label>
+              <select id="recipientType" required>
+                <option value="">Select one…</option>
+                <option value="partner">Partner / spouse</option>
+                <option value="crush">Crush / someone you like</option>
+                <option value="friend">Friend</option>
+                <option value="family">Family member</option>
+                <option value="coworker">Coworker / boss</option>
+                <option value="kid">Child / teen</option>
+                <option value="other">Other / not sure</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="ageRange">Age range (approx.)</label>
+              <select id="ageRange">
+                <option value="">Any age</option>
+                <option value="0-5">0–5</option>
+                <option value="6-12">6–12</option>
+                <option value="13-17">13–17</option>
+                <option value="18-24">18–24</option>
+                <option value="25-34">25–34</option>
+                <option value="35-49">35–49</option>
+                <option value="50+">50+</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="occasion">Occasion</label>
+              <select id="occasion">
+                <option value="">Just because</option>
+                <option value="birthday">Birthday</option>
+                <option value="christmas">Christmas / holiday</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="wedding">Wedding</option>
+                <option value="baby-shower">Baby shower</option>
+                <option value="graduation">Graduation</option>
+                <option value="thank-you">Thank you</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label>Budget range (USD)</label>
+              <div class="chip-row" id="budget-chips">
+                <button type="button" class="chip" data-value="under-25">Under $25</button>
+                <button type="button" class="chip" data-value="25-50">$25–$50</button>
+                <button type="button" class="chip" data-value="50-100">$50–$100</button>
+                <button type="button" class="chip" data-value="100-250">$100–$250</button>
+                <button type="button" class="chip" data-value="250+">$250+</button>
+              </div>
+              <input type="hidden" id="budgetRange" />
+              <p class="field-help">Pick one that feels close. AI will match ideas to this range.</p>
+            </div>
+
+            <div class="form-row">
+              <label>Interests & vibes</label>
+              <div class="chip-row" id="interest-chips">
+                <button type="button" class="chip" data-value="tech">Tech & gadgets</button>
+                <button type="button" class="chip" data-value="gaming">Gaming</button>
+                <button type="button" class="chip" data-value="sports">Sports & fitness</button>
+                <button type="button" class="chip" data-value="fashion">Fashion & style</button>
+                <button type="button" class="chip" data-value="beauty">Beauty & self-care</button>
+                <button type="button" class="chip" data-value="outdoors">Outdoors & travel</button>
+                <button type="button" class="chip" data-value="home">Home & cozy</button>
+                <button type="button" class="chip" data-value="books">Books & learning</button>
+                <button type="button" class="chip" data-value="food">Food & coffee</button>
+                <button type="button" class="chip" data-value="funny">Funny / lighthearted</button>
+              </div>
+              <textarea id="customInterests" placeholder="Anything specific they love? (Teams, hobbies, fandoms, favorite colors, etc.)"></textarea>
+            </div>
+
+            <div class="form-row">
+              <label for="country">Where do they live?</label>
+              <select id="country">
+                <option value="">Select a region…</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="eu">Europe</option>
+                <option value="canada">Canada</option>
+                <option value="australia">Australia / NZ</option>
+                <option value="other">Other / not listed</option>
+              </select>
+              <p class="field-help">This helps avoid suggestions that don’t ship or don’t make sense for their location.</p>
+            </div>
+
+            <div class="btn-row">
+              <button type="submit" class="primary-btn" id="submit-btn">
+                <span id="btn-label">Find gift ideas</span> <span id="btn-spinner" style="display:none;">⏳</span>
+              </button>
+              <div class="btn-sub">
+                No login. No spam. Just ideas.
+              </div>
+            </div>
+            <div id="form-message"></div>
+          </form>
+        </div>
+
+        <aside class="hero-secondary" aria-label="Preview & results">
+          <div id="how-it-works">
+            <div class="preview-header">See what AI will do</div>
+            <p class="preview-sub">
+              We’ll turn your answers into a short list of gift ideas that explain <strong>what to buy</strong> and <strong>why it fits</strong>.
+            </p>
+
+            <div class="preview-card">
+              <div class="preview-thumb"></div>
+              <div>
+                <div class="preview-title">Cozy Weighted Blanket</div>
+                <div class="preview-meta">
+                  <span>Budget: $50–$100</span>
+                  <span>Vibe: cozy & thoughtful</span>
+                </div>
+                <div class="preview-body">
+                  A soft, high-quality weighted blanket that makes movie nights and lazy Sundays feel extra relaxing.
+                </div>
+                <div class="preview-why">
+                  <strong>Why it fits:</strong> Great for someone who likes staying in, struggles with sleep, or loves a cozy living room.
+                </div>
+                <div class="preview-footer">
+                  <a href="#" class="preview-link">
+                    <span>🛒</span> View on Amazon
+                  </a>
+                  <span class="preview-note">Example result – your ideas will be tailored to your answers.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="results-section" id="results-section" aria-live="polite">
+            <div class="results-header-row">
+              <div class="results-title">Your AI gift ideas</div>
+              <div class="results-status" id="results-status">Fill in the form to get started.</div>
+            </div>
+            <div class="gift-grid" id="gift-grid">
+              <!-- Dynamic gift results will appear here -->
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">Questions about how this works?</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <strong>Is this really using AI?</strong>
+            Yes. When you submit the form, your answers are turned into a structured prompt sent to an AI model.
+            The model suggests gift ideas and explains why they might fit the person you’re shopping for.
+          </div>
+          <div class="faq-item">
+            <strong>Do you earn money from links?</strong>
+            Some outbound links may be affiliate links, which means the site may earn a small commission if you buy
+            something – at no extra cost to you.
+          </div>
+          <div class="faq-item">
+            <strong>Will it suggest super expensive things?</strong>
+            The budget range you pick keeps suggestions roughly in your comfort zone. You can always re-run with a
+            different budget if you want to see more premium or more affordable ideas.
+          </div>
+          <div class="faq-item">
+            <strong>Can I run this more than once?</strong>
+            Absolutely. Try different interests, budgets, or occasions to see how the suggestions change.
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="privacy">
+        <h2 class="faq-title">Privacy & data</h2>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:6px;">
+          This is a simple tool designed to help you brainstorm gift ideas. It doesn’t need your name or the
+          recipient’s name – just a few details about their interests and the occasion.
+        </p>
+        <p style="font-size:11px; color:var(--muted);">
+          You should avoid entering sensitive or personal information. For a full overview of how data may be handled
+          (including analytics and affiliate links), add a dedicated privacy policy page and link it here.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        © <span id="year"></span> AI Gift Finder. Some links may be affiliate links; pricing and availability can change at any time.
+      </div>
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Budget chip selection
+    const budgetChips = document.querySelectorAll('#budget-chips .chip');
+    const budgetInput = document.getElementById('budgetRange');
+    budgetChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        budgetChips.forEach(c => c.classList.remove('chip-active'));
+        chip.classList.add('chip-active');
+        budgetInput.value = chip.dataset.value;
+      });
+    });
+
+    // Interest chips (multi-select)
+    const interestChips = document.querySelectorAll('#interest-chips .chip');
+    interestChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('chip-active');
+      });
+    });
+
+    const form = document.getElementById('gift-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnLabel = document.getElementById('btn-label');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const messageEl = document.getElementById('form-message');
+    const resultsStatus = document.getElementById('results-status');
+    const giftGrid = document.getElementById('gift-grid');
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      btnLabel.textContent = isLoading ? 'Finding ideas…' : 'Find gift ideas';
+      btnSpinner.style.display = isLoading ? 'inline' : 'none';
+    }
+
+    function showMessage(text, type) {
+      messageEl.textContent = text;
+      if (!text) return;
+      messageEl.className = type === 'error' ? 'error-text' : 'success-text';
+    }
+
+    function buildPrompt(payload) {
+      // This is the structured prompt you would send to your AI backend
+      // You don't send it from the browser directly if it would expose your API key.
+      const { recipientType, ageRange, occasion, budgetRange, interests, customInterests, country } = payload;
+      return `
+You are an expert gift consultant.
+
+User details:
+- Recipient type: ${recipientType || 'not specified'}
+- Age range: ${ageRange || 'any'}
+- Occasion: ${occasion || 'just because'}
+- Budget range: ${budgetRange || 'flexible'}
+- Interests tags: ${interests.length ? interests.join(', ') : 'none'}
+- Extra notes: ${customInterests || 'none'}
+- Region: ${country || 'unspecified'}
+
+Return 3–6 gift ideas as a JSON array. Each item must have:
+- title: short product style name
+- description: what it is and why it’s useful
+- whyItFits: why this fits the recipient and occasion
+- priceHint: short price phrase like "Around $30" or "$50–$80"
+- tags: 2–4 short keywords like ["cozy", "tech", "experience"]
+- amazonSearchTerm: a concise search phrase I could use on Amazon to find this item (for links).
+
+Only return valid JSON, no extra commentary.
+      `.trim();
+    }
+
+    function renderGifts(gifts) {
+      giftGrid.innerHTML = '';
+      if (!gifts || !gifts.length) {
+        resultsStatus.textContent = 'No ideas returned – try adjusting the details and searching again.';
+        return;
+      }
+      resultsStatus.textContent = `Here are ${gifts.length} ideas you can start with:`;
+
+      gifts.forEach(gift => {
+        const card = document.createElement('article');
+        card.className = 'gift-card';
+
+        const title = document.createElement('div');
+        title.className = 'gift-title';
+        title.textContent = gift.title || 'Gift idea';
+
+        const price = document.createElement('div');
+        price.className = 'gift-price';
+        price.textContent = gift.priceHint || 'Price varies';
+
+        const desc = document.createElement('div');
+        desc.className = 'gift-desc';
+        desc.textContent = gift.description || '';
+
+        const why = document.createElement('div');
+        why.className = 'gift-why';
+        if (gift.whyItFits) {
+          why.innerHTML = '<strong>Why it fits:</strong> ' + gift.whyItFits;
+        }
+
+        const tagsWrap = document.createElement('div');
+        tagsWrap.className = 'gift-tags';
+        (gift.tags || []).forEach(tag => {
+          const t = document.createElement('span');
+          t.className = 'gift-tag';
+          t.textContent = tag;
+          tagsWrap.appendChild(t);
+        });
+
+        const footer = document.createElement('div');
+        footer.className = 'gift-footer';
+
+        const link = document.createElement('a');
+        link.className = 'gift-link';
+
+        // Placeholder Amazon link using the search term; replace "YOUR_AMAZON_TAG" with your affiliate tag
+        const searchTerm = encodeURIComponent(gift.amazonSearchTerm || gift.title || 'gift');
+        link.href = `https://www.amazon.com/s?k=${searchTerm}&tag=YOUR_AMAZON_TAG`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+
+        link.innerHTML = '🛒 View on Amazon';
+
+        const disclaimer = document.createElement('div');
+        disclaimer.className = 'disclaimer';
+        disclaimer.textContent = 'Amazon product suggestions are based on your answers. Always check reviews and details before buying.';
+
+        footer.appendChild(link);
+        footer.appendChild(disclaimer);
+
+        card.appendChild(title);
+        card.appendChild(price);
+        card.appendChild(desc);
+        if (gift.whyItFits) card.appendChild(why);
+        if (gift.tags && gift.tags.length) card.appendChild(tagsWrap);
+        card.appendChild(footer);
+
+        giftGrid.appendChild(card);
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showMessage('', '');
+      resultsStatus.textContent = 'Thinking… crafting gift ideas tailored to your answers.';
+      giftGrid.innerHTML = '';
+
+      const payload = {
+        recipientType: document.getElementById('recipientType').value,
+        ageRange: document.getElementById('ageRange').value,
+        occasion: document.getElementById('occasion').value,
+        budgetRange: budgetInput.value,
+        interests: Array.from(interestChips)
+          .filter(c => c.classList.contains('chip-active'))
+          .map(c => c.dataset.value),
+        customInterests: document.getElementById('customInterests').value.trim(),
+        country: document.getElementById('country').value
+      };
+
+      if (!payload.recipientType) {
+        showMessage('Please tell us who the gift is for.', 'error');
+        resultsStatus.textContent = 'Waiting for details.';
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const prompt = buildPrompt(payload);
+
+        // Call your backend API here. This is a placeholder.
+        // IMPORTANT: Do NOT call OpenAI directly from the browser with your secret key.
+        const response = await fetch('/api/gifts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, meta: payload })
+        });
+
+        if (!response.ok) {
+          throw new Error('Server error while generating ideas.');
+        }
+
+        const data = await response.json();
+        // Expecting data.gifts to be an array of gift objects
+        if (!data || !Array.isArray(data.gifts)) {
+          throw new Error('Unexpected response format from AI.');
+        }
+
+        renderGifts(data.gifts);
+        showMessage('Here are some ideas – you can always tweak the inputs and try again.', 'success');
+      } catch (err) {
+        console.error(err);
+        showMessage('Something went wrong while generating ideas. Please try again in a moment.', 'error');
+
+        // Optional: fallback mock ideas if the API fails (for dev/testing)
+        const fallbackGifts = [
+          {
+            title: 'Personalized Mug with Inside Joke',
+            description: 'A high-quality mug printed with a phrase or inside joke only the two of you share.',
+            whyItFits: 'It’s affordable, personal, and something they’ll see every morning.',
+            priceHint: 'Around $20',
+            tags: ['personalized', 'funny', 'everyday'],
+            amazonSearchTerm: 'custom inside joke mug'
+          },
+          {
+            title: 'Mini Projector for Movie Nights',
+            description: 'A compact projector you can use for easy movie nights at home or in the backyard.',
+            whyItFits: 'Great for someone who loves movies or hosting casual hangouts.',
+            priceHint: '$60–$120',
+            tags: ['tech', 'cozy', 'experience'],
+            amazonSearchTerm: 'mini movie projector'
+          }
+        ];
+        renderGifts(fallbackGifts);
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+</html>
