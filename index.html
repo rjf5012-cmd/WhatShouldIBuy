@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Optional: Google AdSense (commented out until you're ready)
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT_ID"
-    crossorigin="anonymous"></script>
-  -->
-
   <meta charset="UTF-8" />
   <title>GiftPicks AI | Find the Perfect Gift in Seconds</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="GiftPicks AI helps you find thoughtful gift ideas in seconds. Tell us who you're shopping for, your budget, and their interests—get tailored gift suggestions with direct shopping links." />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://giftpicksai.com/" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Favicon (you can swap this later for a PNG export of the logo) -->
+  <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -86,8 +80,6 @@
       flex-direction: column;
     }
 
-    /* HEADER */
-
     header {
       display: flex;
       align-items: center;
@@ -102,29 +94,15 @@
       gap: 10px;
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 0 0, #e0edff 0, #9db7ff 30%, #2563eb 70%, #1d3fad 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 7px 22px rgba(37, 99, 235, 0.45);
-      font-size: 18px;
-      color: #ffffff;
-      font-weight: 600;
+    .brand-logo {
+      display: block;
+      height: 32px;
     }
 
-    .brand-text-title {
-      font-weight: 650;
-      letter-spacing: 0.02em;
-      font-size: 18px;
-    }
-
-    .brand-text-sub {
-      font-size: 12px;
-      color: var(--text-muted);
+    @media (min-width: 600px) {
+      .brand-logo {
+        height: 36px;
+      }
     }
 
     .nav {
@@ -154,8 +132,6 @@
       background: rgba(255,255,255,0.65);
     }
 
-    /* LAYOUT */
-
     main {
       flex: 1;
     }
@@ -173,12 +149,10 @@
       }
     }
 
-    /* HERO + FORM */
-
     .hero-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,244,255,0.95));
       border-radius: 24px;
-      padding: 22px 22px 22px;
+      padding: 22px;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(255,255,255,0.9);
     }
@@ -455,8 +429,6 @@
       background: #ffffff;
     }
 
-    /* RESULTS COLUMN */
-
     .results-shell {
       display: flex;
       flex-direction: column;
@@ -583,8 +555,6 @@
       color: var(--text-muted);
     }
 
-    /* FAQ */
-
     .faq-card {
       padding: 16px 16px 14px;
       border-radius: 18px;
@@ -615,8 +585,6 @@
       margin-bottom: 2px;
       color: var(--text-main);
     }
-
-    /* FOOTER */
 
     footer {
       margin-top: 24px;
@@ -659,11 +627,7 @@
   <div class="page">
     <header>
       <div class="brand">
-        <div class="brand-mark">GP</div>
-        <div>
-          <div class="brand-text-title">GiftPicks AI</div>
-          <div class="brand-text-sub">AI-powered gift suggestions</div>
-        </div>
+        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
       </div>
       <nav class="nav">
         <a href="#how-it-works" class="nav-highlight">Start</a>
@@ -821,7 +785,7 @@
           </form>
         </section>
 
-        <!-- RIGHT: RESULTS + FAQ TEASER -->
+        <!-- RIGHT: RESULTS + FAQ -->
         <section class="results-shell">
           <div class="results-card" aria-live="polite">
             <div class="results-header">
@@ -831,9 +795,7 @@
             <div class="results-hint">
               You’ll see a small set of targeted ideas, each with a short explanation and a link you can use to keep browsing.
             </div>
-            <div class="gift-grid" id="gift-grid">
-              <!-- Dynamic gift cards will render here -->
-            </div>
+            <div class="gift-grid" id="gift-grid"></div>
           </div>
 
           <div class="faq-card" id="faq">
@@ -880,10 +842,8 @@
   </div>
 
   <script>
-    // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Budget chips
     const budgetChips = document.querySelectorAll('#budget-chips .chip');
     const budgetInput = document.getElementById('budgetRange');
     budgetChips.forEach(chip => {
@@ -894,7 +854,6 @@
       });
     });
 
-    // Interest chips (multi-select)
     const interestChips = document.querySelectorAll('#interest-chips .chip');
     interestChips.forEach(chip => {
       chip.addEventListener('click', () => {
@@ -1012,7 +971,6 @@ Important:
         const link = document.createElement('a');
         link.className = 'gift-link';
         const searchTerm = encodeURIComponent(gift.amazonSearchTerm || gift.title || 'gift idea');
-        // Replace YOUR_AMAZON_TAG with your real tag
         link.href = `https://www.amazon.com/s?k=${searchTerm}&tag=YOUR_AMAZON_TAG`;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
