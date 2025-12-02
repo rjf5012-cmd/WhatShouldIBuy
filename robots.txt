@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Optional: block any experimental or test paths
-# Disallow: /dev/
-
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://giftpicksai.com/sitemap.xml
