@@ -2,345 +2,229 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Terms of Use | GiftPicks AI</title>
+  <title>Terms of Service | GiftPicks AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Terms of use for GiftPicks AI, including disclaimers and acceptable use." />
-  <link rel="canonical" href="https://giftpicksai.com/terms.html" />
+  <meta name="description" content="Read the Terms of Service for GiftPicks AI. Understand how the service may be used.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
-  <link rel="alternate icon" href="/favicon.png" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Terms of Use | GiftPicks AI" />
-  <meta property="og:description" content="Read the terms that govern your use of GiftPicks AI." />
-  <meta property="og:url" content="https://giftpicksai.com/terms.html" />
-  <meta property="og:image" content="https://giftpicksai.com/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
 
   <style>
     :root {
-      --bg: #020617;
-      --bg-alt: #020617;
-      --text-on-dark: #E5F0FF;
-      --text-muted: #9CA3AF;
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.4);
-      --radius-lg: 22px;
-      --radius-pill: 999px;
-      --transition-fast: 0.16s ease-out;
+      --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(15,23,42,0.9);
+      --card-border: rgba(148,163,184,0.5);
+      --accent-gradient: linear-gradient(90deg, #38bdf8, #3b82f6, #a855f7);
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-bright: #f9fafb;
+      --radius: 14px;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.24) 0, transparent 55%),
-        radial-gradient(circle at top right, rgba(168, 85, 247, 0.25) 0, transparent 55%),
-        radial-gradient(circle at bottom, rgba(52, 211, 153, 0.12) 0, transparent 65%),
-        var(--bg-alt);
-      color: var(--text-on-dark);
+        radial-gradient(circle at top left, rgba(56,189,248,0.25) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.28) 0, transparent 55%),
+        var(--bg-gradient);
+      color: var(--text-light);
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; }
-
-    .page {
-      max-width: 1120px;
+    .container {
+      width: min(1150px, 92%);
       margin: 0 auto;
-      padding: 22px 16px 40px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      padding: 32px 0 80px;
     }
 
-    .frame {
-      border-radius: 30px;
-      padding: 18px 18px 22px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.85));
-      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      backdrop-filter: blur(22px);
-      min-height: 100%;
-    }
-
+    /* HEADER */
     header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: flex;
       align-items: center;
-      gap: 12px;
+      margin-bottom: 32px;
+      gap: 16px;
     }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 56px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-name { color: var(--text-bright); font-size: 20px; font-weight: 700; }
+    .brand-tagline { color: var(--text-muted); font-size: 12px; }
 
-    .brand-logo {
-      display: block;
-      height: 50px;
-      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.4));
-    }
-
-    @media (min-width: 800px) {
-      .brand-logo { height: 56px; }
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-name {
-      font-size: 18px;
-      font-weight: 650;
-      letter-spacing: 0.02em;
-      color: #E5F0FF;
-    }
-
-    .brand-tagline {
-      font-size: 11px;
-      color: rgba(148, 163, 184, 0.96);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a {
+      color: var(--text-light);
       text-decoration: none;
-      color: rgba(226, 232, 240, 0.9);
-      padding: 6px 11px;
-      border-radius: var(--radius-pill);
-      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    nav a.active {
+      border-color: rgba(148,163,184,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
+    }
+    nav a:hover {
+      color: #ffffff;
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
     }
 
-    .nav a:hover {
-      background: rgba(15, 23, 42, 0.85);
-      color: #E5F0FF;
-      transform: translateY(-1px);
-    }
-
-    .nav-highlight {
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.32), rgba(15, 23, 42, 0.95));
-    }
-
-    main { flex: 1; }
-
-    .content-card {
-      border-radius: var(--radius-lg);
+    /* CARD */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       padding: 26px 24px 24px;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 60%),
-                  radial-gradient(circle at top right, rgba(168, 85, 247, 0.28), transparent 55%),
-                  #020617;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: var(--shadow-soft);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 80px rgba(15,23,42,0.7);
     }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(24px, 3vw, 30px);
-      letter-spacing: -0.02em;
-    }
-
-    h1 span {
-      background: linear-gradient(135deg, #38BDF8, #A855F7);
+    .page-title {
+      background: var(--accent-gradient);
       -webkit-background-clip: text;
-      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(28px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
-    h2 {
+    .section-title {
+      font-size: 18px;
       margin-top: 20px;
       margin-bottom: 6px;
-      font-size: 17px;
+      color: var(--text-bright);
+      font-weight: 600;
     }
 
-    p {
-      margin: 6px 0;
-      font-size: 14px;
-      color: rgba(226, 232, 240, 0.92);
+    p, li {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-    ul {
-      margin: 8px 0 8px 18px;
-      padding: 0;
-      font-size: 14px;
-      color: rgba(226, 232, 240, 0.9);
-    }
+    ul { margin-left: 22px; }
 
-    li { margin-bottom: 4px; }
-
-    .muted {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
+    /* FOOTER */
     footer {
-      margin-top: 22px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 11px;
-      color: rgba(148, 163, 184, 0.96);
-    }
-
-    .footer-inner {
+      margin-top: 26px;
+      font-size: 12px;
+      color: var(--text-muted);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      padding-top: 14px;
     }
-
+    .footer-links { display: flex; gap: 12px; flex-wrap: wrap; }
     .footer-links a {
-      color: rgba(148, 163, 184, 0.96);
+      color: var(--text-muted);
       text-decoration: none;
-      margin-left: 10px;
+      font-size: 12px;
     }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: #E5E7EB;
-    }
-
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav { justify-content: flex-start; }
-      .content-card { padding: 22px 18px 20px; }
-    }
+    .footer-links a:hover { color: var(--text-light); text-decoration: underline; }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="frame">
-      <header>
-        <div class="brand">
-          <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
-          <div class="brand-text">
-            <div class="brand-name">GiftPicks AI</div>
-            <div class="brand-tagline">AI-powered gift suggestions</div>
-          </div>
+  <div class="container">
+
+    <header>
+      <div class="brand">
+        <img src="/logo-giftpicksai.svg" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-name">GiftPicks AI</div>
+          <div class="brand-tagline">AI-powered gift suggestions</div>
         </div>
-        <nav class="nav">
-          <a href="/" class="nav-highlight">Start</a>
-          <a href="/index.html#faq">FAQ</a>
-          <a href="/about.html">About</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/terms.html">Terms</a>
-        </nav>
-      </header>
+      </div>
 
-      <main>
-        <section class="content-card">
-          <h1>Terms of Use <span>GiftPicks AI</span></h1>
-          <p class="muted">Last updated: <span id="last-updated">December 2025</span></p>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html" class="active">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
 
-          <h2>1. Acceptance of terms</h2>
-          <p>
-            By accessing or using GiftPicks AI, you agree to these Terms of Use. If you do not agree, you should
-            not use the site.
-          </p>
+    <main class="card">
+      <h1 class="page-title">Terms of Service</h1>
 
-          <h2>2. Purpose of the site</h2>
-          <p>
-            GiftPicks AI provides AI-generated gift suggestions based on the information you choose to enter.
-            The site is for general informational and entertainment purposes only.
-          </p>
+      <p>
+        These Terms of Service (“Terms”) govern your use of GiftPicks AI. By using this website,
+        you agree to these Terms.
+      </p>
 
-          <h2>3. No professional advice</h2>
-          <p>
-            GiftPicks AI does not provide financial, legal, medical, or other professional advice. You are solely
-            responsible for your purchasing decisions and for reviewing product details, suitability, and safety
-            before buying anything.
-          </p>
+      <div class="section-title">1. Use of the Service</div>
+      <p>
+        GiftPicks AI provides AI-generated gift recommendations based on your inputs. Suggestions are for
+        informational purposes only, and GiftPicks AI is not responsible for final purchasing decisions.
+      </p>
 
-          <h2>4. AI-generated content</h2>
-          <p>
-            Suggestions on GiftPicks AI are generated with the help of AI models and may sometimes be incomplete,
-            outdated, or not suitable for your situation. You should treat all outputs as suggestions to review,
-            not as guarantees or endorsements.
-          </p>
+      <div class="section-title">2. No Guarantee of Accuracy</div>
+      <p>
+        GiftPicks AI uses AI models to generate personalized recommendations. While we strive to provide
+        high-quality suggestions, we cannot guarantee the accuracy, appropriateness, or reliability
+        of any generated content.
+      </p>
 
-          <h2>5. Affiliate links</h2>
-          <p>
-            Some links on GiftPicks AI may be affiliate links. If you click one of these links and make a qualifying
-            purchase, the site may earn a small commission at no additional cost to you.
-          </p>
-          <p class="muted">
-            Retailers are responsible for their own products, pricing, shipping, and return policies. GiftPicks AI
-            is not a party to your transaction with any third-party site.
-          </p>
+      <div class="section-title">3. User Responsibility</div>
+      <ul>
+        <li>You are responsible for verifying product availability, pricing, and suitability.</li>
+        <li>You agree not to misuse the service or submit harmful or unlawful content.</li>
+      </ul>
 
-          <h2>6. Acceptable use</h2>
-          <p>You agree not to:</p>
-          <ul>
-            <li>Use the site in any way that violates applicable laws or regulations.</li>
-            <li>Attempt to reverse engineer, interfere with, or disrupt the site or its infrastructure.</li>
-            <li>Submit harmful, abusive, or illegal content through the form.</li>
-          </ul>
+      <div class="section-title">4. Intellectual Property</div>
+      <p>
+        All branding, design, and content on GiftPicks AI are owned by the site owner.
+        You may not copy, distribute, or replicate any part of the service without permission.
+      </p>
 
-          <h2>7. Availability and changes</h2>
-          <p>
-            GiftPicks AI may be modified, paused, or discontinued at any time without notice. Features may change
-            as the underlying AI tools and hosting environment evolve.
-          </p>
+      <div class="section-title">5. Third-Party Links</div>
+      <p>
+        GiftPicks AI may provide links to shopping sites such as Amazon or others.
+        We are not responsible for external websites, their content, or any purchases made through them.
+      </p>
 
-          <h2>8. Limitation of liability</h2>
-          <p>
-            To the fullest extent permitted by law, GiftPicks AI and its owner(s) will not be liable for any
-            direct, indirect, incidental, consequential, or special damages arising out of or in connection with
-            your use of the site or reliance on its suggestions.
-          </p>
+      <div class="section-title">6. Changes to the Service</div>
+      <p>
+        We may modify or discontinue parts of the service at any time without prior notice.
+      </p>
 
-          <h2>9. Third-party sites</h2>
-          <p>
-            The site may link to third-party websites (such as retailers or marketplaces). Those sites are not
-            controlled by GiftPicks AI, and their terms and privacy policies apply to your use of them.
-          </p>
+      <div class="section-title">7. Limitation of Liability</div>
+      <p>
+        GiftPicks AI is provided “as is” without warranty of any kind.
+        To the fullest extent permitted by law, we disclaim all liability arising from your use of the service.
+      </p>
 
-          <h2>10. Changes to these terms</h2>
-          <p>
-            These terms may be updated from time to time. When changes are made, the “Last updated” date above
-            will be revised. Continued use of the site after changes are posted constitutes acceptance of the
-            updated terms.
-          </p>
+      <div class="section-title">8. Contact</div>
+      <p>
+        For questions about these Terms, email us at:
+        <br><strong>hello@giftpicksai.com</strong>
+      </p>
+    </main>
 
-          <h2>11. Contact</h2>
-          <p>
-            If you have questions about these terms, you can contact the site owner using the contact information
-            associated with the domain or any email address listed on the site.
-          </p>
-        </section>
-      </main>
+    <footer>
+      <div>© <span id="year"></span> GiftPicks AI. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
 
-      <footer>
-        <div class="footer-inner">
-          <div>
-            © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
-          </div>
-          <div class="footer-links">
-            <a href="/about.html">About</a>
-            <a href="/privacy.html">Privacy</a>
-            <a href="/terms.html">Terms</a>
-          </div>
-        </div>
-      </footer>
-    </div>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
