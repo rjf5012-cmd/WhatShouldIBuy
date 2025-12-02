@@ -6,34 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Learn more about GiftPicks AI, an AI-powered tool that helps you find thoughtful gift ideas in seconds." />
   <link rel="canonical" href="https://giftpicksai.com/about.html" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
+
   <style>
     :root {
-      --bg: #f5f5f8;
+      --bg: #f3f4f8;
       --card-bg: #ffffff;
-      --text-main: #1f2430;
-      --text-muted: #6f7685;
-      --border-subtle: #e0e3ec;
-      --accent: #ff6f61;
-      --accent-soft: rgba(255, 111, 97, 0.08);
-      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --accent-border: rgba(37,99,235,0.2);
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --border-subtle: #e2e5ee;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
       --radius-lg: 18px;
       --radius-pill: 999px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, #f5f5f8 45%, #eceff5 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #e5e7f0 100%);
       color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
     }
 
+    a { color: inherit; }
+
     .page {
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 20px 16px 40px;
       min-height: 100vh;
@@ -45,75 +48,85 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 15% 0, #ffe9e5 0, #ffb9a9 30%, #ff6f61 70%, #c52c41 100%);
+    .brand-logo {
+      display: block;
+      height: 32px;
+    }
+
+    @media (min-width: 600px) {
+      .brand-logo { height: 36px; }
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 18px rgba(255, 111, 97, 0.4);
-      font-size: 18px;
-    }
-
-    .logo-text-title {
-      font-weight: 650;
-      letter-spacing: 0.02em;
-      font-size: 18px;
-    }
-
-    .logo-text-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
+      gap: 10px;
       font-size: 13px;
-      margin-left: 10px;
-      padding: 4px 8px;
-      border-radius: var(--radius-pill);
-      transition: background 0.15s ease-out, color 0.15s ease-out;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    nav a:hover {
+    .nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      transition: background 0.16s ease-out, color 0.16s ease-out;
+    }
+
+    .nav a:hover {
       background: var(--accent-soft);
       color: var(--accent);
     }
 
-    main {
-      flex: 1;
+    .nav-highlight {
+      border: 1px solid var(--accent-border);
+      background: rgba(255,255,255,0.65);
     }
 
+    main { flex: 1; }
+
     .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 18px 18px 20px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(244,246,255,0.98));
+      border-radius: 24px;
+      padding: 22px 22px 20px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 500;
+      border: 1px solid var(--accent-border);
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 22px;
-      margin: 0 0 8px;
+      font-size: 24px;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
     }
 
     h2 {
       font-size: 16px;
-      margin-top: 18px;
-      margin-bottom: 6px;
+      margin: 18px 0 6px;
     }
 
     p {
@@ -134,21 +147,10 @@
       margin-bottom: 4px;
     }
 
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 11px;
-      margin-bottom: 10px;
-      border: 1px solid rgba(255, 111, 97, 0.2);
-    }
+    strong { color: #111827; }
 
     footer {
-      margin-top: 18px;
+      margin-top: 24px;
       padding-top: 12px;
       border-top: 1px solid #e1e4ef;
       font-size: 11px;
@@ -160,39 +162,32 @@
       flex-wrap: wrap;
     }
 
-    footer a {
+    .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
       margin-left: 10px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .footer-links a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      nav {
-        margin-top: 6px;
-      }
+      .nav { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <div class="logo">
-        <div class="logo-mark">🎁</div>
-        <div>
-          <div class="logo-text-title">GiftPicks AI</div>
-          <div class="logo-text-sub">AI-powered gift ideas</div>
-        </div>
+      <div class="brand">
+        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
       </div>
-      <nav>
-        <a href="/">Home</a>
+      <nav class="nav">
+        <a href="/" class="nav-highlight">Home</a>
+        <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
@@ -201,76 +196,68 @@
     <main>
       <section class="card">
         <div class="meta-tag">About GiftPicks AI</div>
-        <h1>Our goal: make gift shopping easier</h1>
+        <h1>Our goal: make gift buying easier, not noisier</h1>
         <p>
-          GiftPicks AI was created to solve a simple problem: finding a thoughtful gift shouldn’t require hours of
-          scrolling through endless lists and product pages.
+          GiftPicks AI was created around a simple idea: finding a thoughtful gift shouldn’t require hours of scrolling
+          through generic “top 100” lists and endless product pages.
         </p>
         <p>
-          Instead of generic “top 100 gifts” articles, GiftPicks AI asks a few targeted questions about who you’re
-          shopping for, their interests, and your budget. Using that information, our AI suggests a short list of
-          gift ideas tailored to your situation—plus a quick explanation of <strong>why</strong> each one might be a good fit.
+          Instead of guessing or relying on broad recommendations, GiftPicks AI asks a few targeted questions about who
+          you’re shopping for, your budget, and what they care about. From there, it suggests a short list of
+          <strong>practical, context-aware gift ideas</strong> you can quickly evaluate.
         </p>
 
-        <h2>How it works</h2>
-        <p>
-          When you submit the form on the homepage, GiftPicks AI:
-        </p>
+        <h2>How GiftPicks AI works</h2>
+        <p>When you submit the form on the homepage, GiftPicks AI:</p>
         <ul>
-          <li>Takes in simple details like recipient type, age range, interests, and budget.</li>
-          <li>Builds a structured prompt for an AI model based on your answers.</li>
-          <li>Generates several gift ideas with plain-language explanations.</li>
-          <li>Creates Amazon search links so you can quickly browse real products.</li>
+          <li>Captures key details such as relationship, age range, occasion, interests, and budget.</li>
+          <li>Builds a structured, AI-friendly prompt from those inputs.</li>
+          <li>Requests several concrete, easy-to-shop gift concepts.</li>
+          <li>Provides search terms so you can browse on retailers like Amazon with one click.</li>
         </ul>
         <p>
-          You stay in control the whole time—no account creation, no long surveys, and you can re-run it as often as
-          you like with different inputs.
+          You stay in control: there is no login, no required account, and you can re-run the tool as often as you’d like
+          with different scenarios.
         </p>
 
-        <h2>Why some links are affiliate links</h2>
+        <h2>How this site is funded</h2>
         <p>
-          GiftPicks AI may use affiliate links for some outbound shopping links (for example, to Amazon). This means we
-          may earn a small commission if you make a qualifying purchase through one of those links, at no extra cost to you.
-          These commissions help support hosting, development, and ongoing improvements to the tool.
+          GiftPicks AI may use affiliate links for some outbound shopping links (for example, to Amazon). If you make a
+          qualifying purchase after clicking one of those links, we may earn a small commission—at no additional cost to you.
         </p>
         <p>
-          You’re always free to ignore the links and search for the products on your own—we simply aim to make it faster
-          to go from a good idea to a real purchase.
+          These commissions help cover hosting, development, and ongoing improvements. You are always free to ignore the
+          links and search for the suggested items on your own.
         </p>
 
         <h2>What GiftPicks AI is—and isn’t</h2>
-        <p>
-          GiftPicks AI is:
-        </p>
+        <p>GiftPicks AI is:</p>
         <ul>
-          <li>A fast way to brainstorm gift ideas that actually match the person and occasion.</li>
-          <li>A simple, no-login tool you can use right before birthdays, holidays, and events.</li>
-          <li>A starting point to help you narrow down choices, not a guarantee of the “perfect” gift.</li>
+          <li>A fast way to generate targeted gift ideas for real people and real budgets.</li>
+          <li>A simple helper you can use right before birthdays, holidays, and special events.</li>
+          <li>Designed to reduce decision fatigue by narrowing options, not overwhelm you with more noise.</li>
         </ul>
-        <p>
-          GiftPicks AI is <strong>not</strong>:
-        </p>
+        <p>GiftPicks AI is <strong>not</strong>:</p>
         <ul>
-          <li>A replacement for your own judgment or knowledge of the person you’re shopping for.</li>
-          <li>Responsible for product quality, availability, or pricing on third-party sites.</li>
-          <li>A source of professional financial, legal, or relationship advice.</li>
+          <li>A guarantee that a particular gift will be perfect for every recipient.</li>
+          <li>Responsible for product pricing, availability, shipping, or quality.</li>
+          <li>A source of financial, legal, medical, or relationship advice.</li>
         </ul>
 
-        <h2>Questions or feedback?</h2>
+        <h2>Contact</h2>
         <p>
-          If you have suggestions, spot an issue, or just want to share how you used GiftPicks AI, we’d love to hear from you.
+          If you have feedback, suggestions, or notice an issue, you’re welcome to reach out.
         </p>
         <p><strong>Email:</strong> hello@giftpicksai.com</p>
       </section>
     </main>
 
     <footer>
-      <div>© <span id="year"></span> GiftPicks AI</div>
-      <div>
+      <div>© <span id="year"></span> GiftPicks AI.</div>
+      <div class="footer-links">
         <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
-        <a href="/">Home</a>
       </div>
     </footer>
   </div>
