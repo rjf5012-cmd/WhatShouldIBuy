@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+head>
   <meta charset="UTF-8" />
   <title>GiftPicks AI | Smart Gift Ideas, Powered by AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -274,31 +274,75 @@
       color: var(--text-muted);
       margin-bottom: 14px;
     }
+
+    #resultsList {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .gift-item {
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(148,163,184,0.35);
+      padding: 14px 16px 12px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.13), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(168,85,247,0.16), transparent 55%),
+        rgba(15,23,42,0.98);
+      border: 1px solid rgba(148,163,184,0.55);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.8);
     }
-    .gift-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
+
+    .gift-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
+
     .gift-title {
       font-size: 16px;
       font-weight: 600;
-      color: var(--text-bright);
-      margin-bottom: 6px;
+      background: linear-gradient(90deg,#e5e7eb,#a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 3px;
     }
-    .gift-desc {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-    .gift-meta {
-      color: var(--text-muted);
+
+    .gift-price {
       font-size: 12px;
-      margin-bottom: 2px;
+      color: #e2e8f0;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      white-space: nowrap;
+    }
+
+    .gift-desc {
+      color: #e5e7eb;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .gift-why {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    .gift-tags {
+      margin-top: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .gift-tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.7);
+      color: #cbd5f5;
     }
 
     /* INFO CONTENT SECTION */
@@ -780,14 +824,27 @@
     });
 
     function renderGifts(gifts) {
-      resultsList.innerHTML = gifts.map(g => `
-        <div class="gift-item">
-          <div class="gift-title">${g.title || "Gift idea"}</div>
-          <div class="gift-desc">${g.description || ""}</div>
-          <div class="gift-meta">${g.whyItFits || ""}</div>
-          <div class="gift-meta"><strong>Price hint:</strong> ${g.priceHint || "Varies"}</div>
-        </div>
-      `).join("");
+      resultsList.innerHTML = gifts.map(g => {
+        const tagsHtml = Array.isArray(g.tags) && g.tags.length
+          ? `<div class="gift-tags">
+               ${g.tags.map(t => `<span class="gift-tag">${t}</span>`).join("")}
+             </div>`
+          : "";
+
+        return `
+          <div class="gift-item">
+            <div class="gift-item-header">
+              <div>
+                <div class="gift-title">${g.title || "Gift idea"}</div>
+              </div>
+              ${g.priceHint ? `<div class="gift-price">${g.priceHint}</div>` : ""}
+            </div>
+            <div class="gift-desc">${g.description || ""}</div>
+            <div class="gift-why">${g.whyItFits || ""}</div>
+            ${tagsHtml}
+          </div>
+        `;
+      }).join("");
     }
 
     function buildPrompt(payload) {
@@ -837,7 +894,7 @@ Rules:
 - If gender is "no gender preference", keep suggestions broadly appealing.
 - If a gift tone is given (practical, sentimental, funny, experience, luxury),
   ensure at least one idea strongly fits that tone, and the others feel consistent with it.
-- Provide a mix of 3–6 varied ideas (e.g., not 5 very similar items).
+- Provide a mix of 5–8 varied ideas (for example, not 5 nearly identical items).
 - Each idea should have:
   - a clear, specific title
   - a short description
