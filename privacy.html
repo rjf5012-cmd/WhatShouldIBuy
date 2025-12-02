@@ -4,25 +4,29 @@
   <meta charset="UTF-8" />
   <title>Privacy Policy | GiftPicks AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Privacy policy for GiftPicks AI, describing how we handle data and your information." />
+  <meta name="description" content="Privacy policy for GiftPicks AI, describing what information is collected and how it is used." />
   <link rel="canonical" href="https://giftpicksai.com/privacy.html" />
-  <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+  <link rel="alternate icon" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy | GiftPicks AI" />
+  <meta property="og:description" content="How GiftPicks AI handles information you provide when using the site." />
+  <meta property="og:url" content="https://giftpicksai.com/privacy.html" />
+  <meta property="og:image" content="https://giftpicksai.com/og-image.png" />
 
   <style>
     :root {
-      --bg: #f3f4f8;
-      --bg-soft: #eef1f7;
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-strong: #1d4ed8;
-      --accent-border: rgba(37, 99, 235, 0.2);
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --border-subtle: #e2e5ee;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --text-on-dark: #E5F0FF;
+      --text-muted: #9CA3AF;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.4);
+      --radius-lg: 22px;
       --radius-pill: 999px;
+      --transition-fast: 0.16s ease-out;
     }
 
     * { box-sizing: border-box; }
@@ -30,44 +34,76 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #e5e7f0 100%);
-      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.24) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.25) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(52, 211, 153, 0.12) 0, transparent 65%),
+        var(--bg-alt);
+      color: var(--text-on-dark);
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; }
 
     .page {
-      max-width: 840px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
+      padding: 22px 16px 40px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    .frame {
+      border-radius: 30px;
+      padding: 18px 18px 22px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.85));
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(22px);
+      min-height: 100%;
     }
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 20px;
+      margin-bottom: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .brand-logo {
       display: block;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18));
+      height: 50px;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.4));
     }
 
     @media (min-width: 800px) {
-      .brand-logo { height: 44px; }
+      .brand-logo { height: 56px; }
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      color: #E5F0FF;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      color: rgba(148, 163, 184, 0.96);
     }
 
     .nav {
@@ -81,82 +117,79 @@
 
     .nav a {
       text-decoration: none;
-      color: var(--text-muted);
-      padding: 6px 10px;
+      color: rgba(226, 232, 240, 0.9);
+      padding: 6px 11px;
       border-radius: var(--radius-pill);
-      transition: background 0.16s ease-out, color 0.16s ease-out;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
 
     .nav a:hover {
-      background: var(--accent-soft);
-      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.85);
+      color: #E5F0FF;
+      transform: translateY(-1px);
     }
 
     .nav-highlight {
-      border: 1px solid var(--accent-border);
-      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.32), rgba(15, 23, 42, 0.95));
     }
 
     main { flex: 1; }
 
-    .card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,246,255,0.98));
-      border-radius: 24px;
-      padding: 22px 22px 20px;
+    .content-card {
+      border-radius: var(--radius-lg);
+      padding: 26px 24px 24px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 60%),
+                  radial-gradient(circle at top right, rgba(168, 85, 247, 0.28), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255,255,255,0.95);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-      font-size: 11px;
-      font-weight: 500;
-      border: 1px solid var(--accent-border);
-      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 24px;
       margin: 0 0 8px;
+      font-size: clamp(24px, 3vw, 30px);
       letter-spacing: -0.02em;
     }
 
+    h1 span {
+      background: linear-gradient(135deg, #38BDF8, #A855F7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
     h2 {
-      font-size: 16px;
-      margin-top: 16px;
-      margin-bottom: 4px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+      font-size: 17px;
     }
 
     p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin: 4px 0 8px;
+      margin: 6px 0;
+      font-size: 14px;
+      color: rgba(226, 232, 240, 0.92);
     }
 
     ul {
-      margin: 4px 0 10px;
-      padding-left: 18px;
+      margin: 8px 0 8px 18px;
+      padding: 0;
+      font-size: 14px;
+      color: rgba(226, 232, 240, 0.9);
     }
 
-    li {
+    li { margin-bottom: 4px; }
+
+    .muted {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 4px;
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 22px;
       padding-top: 12px;
-      border-top: 1px solid #e1e4ef;
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
       font-size: 11px;
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
     }
 
     .footer-inner {
@@ -168,143 +201,166 @@
     }
 
     .footer-links a {
-      color: var(--text-muted);
+      color: rgba(148, 163, 184, 0.96);
       text-decoration: none;
       margin-left: 10px;
     }
 
-    .footer-links a:hover { text-decoration: underline; }
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #E5E7EB;
+    }
 
     @media (max-width: 720px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      .nav {
-        justify-content: flex-start;
-      }
+      .nav { justify-content: flex-start; }
+      .content-card { padding: 22px 18px 20px; }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="brand">
-        <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
-      </div>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/privacy.html" class="nav-highlight">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="card">
-        <div class="badge">Privacy Policy</div>
-        <h1>How GiftPicks AI handles your information</h1>
-        <p><em>Last updated: December 2025</em></p>
-
-        <h2>1. Overview</h2>
-        <p>
-          GiftPicks AI is designed to be a lightweight tool for generating gift ideas.
-          We aim to collect and store as little personal information as reasonably possible
-          while still providing useful results.
-        </p>
-
-        <h2>2. Information you provide</h2>
-        <p>
-          When you use GiftPicks AI, you may enter details such as:
-        </p>
-        <ul>
-          <li>Who the gift is for (e.g., partner, friend, coworker).</li>
-          <li>Approximate age range of the recipient.</li>
-          <li>Occasion and budget range.</li>
-          <li>High-level interests or preferences (e.g., “likes coffee,” “into running,” “tech gadgets”).</li>
-          <li>Region or country to help avoid suggestions that don’t ship easily.</li>
-        </ul>
-        <p>
-          This information is used solely to generate gift ideas. You should avoid entering
-          sensitive personal information (such as full names, addresses, or financial details)
-          into the free-text fields.
-        </p>
-
-        <h2>3. Use of AI services</h2>
-        <p>
-          GiftPicks AI relies on third-party AI services to generate suggestions. Information
-          you submit through the form may be sent to those services in order to create relevant
-          gift ideas. We do not use this information to build our own user profiles, and we do
-          not sell your data.
-        </p>
-
-        <h2>4. Logs and analytics</h2>
-        <p>
-          Like many websites, we may collect basic technical information automatically, such as:
-        </p>
-        <ul>
-          <li>IP address and general location (at a region/city level, not precise address).</li>
-          <li>Browser type and device information.</li>
-          <li>Pages viewed and basic usage patterns.</li>
-        </ul>
-        <p>
-          This information is used in aggregate to understand how the site is being used,
-          diagnose issues, and improve performance.
-        </p>
-
-        <h2>5. Cookies</h2>
-        <p>
-          GiftPicks AI may use cookies or similar technologies for basic functionality,
-          performance monitoring, or to integrate third-party services such as analytics
-          or affiliate tracking. You can control cookies through your browser settings.
-        </p>
-
-        <h2>6. Affiliate links and third-party sites</h2>
-        <p>
-          Some links on GiftPicks AI may be affiliate links. When you click these links, you
-          are taken to third-party websites (such as Amazon). Any data collected on those
-          sites is governed by their own privacy policies, not this one.
-        </p>
-
-        <h2>7. Data retention</h2>
-        <p>
-          We do not intentionally store the specific gift queries you enter in a way that is
-          tied back to your identity. Technical logs and aggregate analytics may be retained
-          for a limited period for security, troubleshooting, and usage analysis.
-        </p>
-
-        <h2>8. Children’s privacy</h2>
-        <p>
-          GiftPicks AI is not directed at children under 13. If you are a parent or guardian
-          and believe your child has provided personal information, you can contact us to
-          request deletion of any related data we may hold.
-        </p>
-
-        <h2>9. Changes to this policy</h2>
-        <p>
-          We may update this privacy policy from time to time. When we do, we will update the
-          “Last updated” date at the top of this page. Continued use of the site after changes
-          means you accept the updated policy.
-        </p>
-
-        <h2>10. Contact</h2>
-        <p>
-          If you have questions about this privacy policy, you can contact us at:
-        </p>
-        <p><strong>Email:</strong> hello@giftpicksai.com</p>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> GiftPicks AI.</div>
-        <div class="footer-links">
+    <div class="frame">
+      <header>
+        <div class="brand">
+          <img src="/logo-giftpicksai.svg" alt="GiftPicks AI" class="brand-logo" />
+          <div class="brand-text">
+            <div class="brand-name">GiftPicks AI</div>
+            <div class="brand-tagline">AI-powered gift suggestions</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="/" class="nav-highlight">Start</a>
+          <a href="/index.html#faq">FAQ</a>
           <a href="/about.html">About</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="content-card">
+          <h1>Privacy Policy <span>GiftPicks AI</span></h1>
+          <p class="muted">Last updated: <span id="last-updated">December 2025</span></p>
+
+          <h2>1. Overview</h2>
+          <p>
+            GiftPicks AI is designed to help you generate gift ideas with as little friction as possible.
+            You can use the tool without creating an account or logging in.
+          </p>
+          <p>
+            This policy explains what information may be collected when you use the site and how that information
+            may be used.
+          </p>
+
+          <h2>2. Information you provide</h2>
+          <p>
+            When you use the gift form, you may enter details such as:
+          </p>
+          <ul>
+            <li>Who the gift is for (e.g., partner, friend, coworker).</li>
+            <li>Approximate age range, occasion, and budget range.</li>
+            <li>High-level interests or preferences (e.g., “tech”, “coffee”, “sports”).</li>
+            <li>Optional free-text notes describing hobbies or preferences.</li>
+          </ul>
+          <p>
+            These details are sent to an AI model to generate gift suggestions. They are used only to create
+            your results and are not intended to be stored as long-term profiles.
+          </p>
+          <p class="muted">
+            Please avoid entering highly sensitive information (for example, full names, addresses, medical
+            details, or anything you would not normally share in a short, casual description of a friend).
+          </p>
+
+          <h2>3. Technical and usage data</h2>
+          <p>
+            Like most websites, GiftPicks AI may collect basic technical information automatically, such as:
+          </p>
+          <ul>
+            <li>IP address and approximate region.</li>
+            <li>Browser type and device information.</li>
+            <li>Pages viewed and basic interaction data.</li>
+          </ul>
+          <p>
+            This information is typically handled by the hosting provider (for example, server logs or
+            built-in analytics) and is used to keep the site reliable, secure, and performant.
+          </p>
+
+          <h2>4. Use of AI and third-party services</h2>
+          <p>
+            When you submit the gift form, your inputs are packaged into a structured prompt and sent to an AI
+            model provided by a third-party AI service. That service processes your prompt and returns suggested
+            gift ideas.
+          </p>
+          <p class="muted">
+            Third-party AI providers may log prompts and responses as part of operating and improving their
+            services. Their own privacy policies apply to that processing.
+          </p>
+
+          <h2>5. Cookies and tracking</h2>
+          <p>
+            GiftPicks AI does not require cookies for basic functionality. However, analytics tools, hosting
+            providers, or affiliate programs may use cookies or similar technologies to:
+          </p>
+          <ul>
+            <li>Measure traffic and usage patterns.</li>
+            <li>Attribute affiliate commissions when applicable.</li>
+          </ul>
+
+          <h2>6. Affiliate links</h2>
+          <p>
+            Some outbound links on GiftPicks AI may be affiliate links. If you click a link and make a qualifying
+            purchase, the site may earn a small commission at no additional cost to you.
+          </p>
+          <p>
+            When you follow these links, you are subject to the privacy and cookie policies of the destination site
+            (for example, the retailer or marketplace).
+          </p>
+
+          <h2>7. Data retention</h2>
+          <p>
+            GiftPicks AI is intended to process your inputs transiently—just long enough to generate a response
+            and show it in your browser. Aggregate or anonymized analytics data may be retained for a longer period
+            to help understand and improve site performance.
+          </p>
+
+          <h2>8. Children’s privacy</h2>
+          <p>
+            GiftPicks AI is not directed toward children under the age of 13. The site is meant to be used by adults
+            who may occasionally describe gifts for children, but children should not be the ones submitting
+            information directly.
+          </p>
+
+          <h2>9. Changes to this policy</h2>
+          <p>
+            This privacy policy may be updated from time to time as features change or as hosting and analytics
+            tools are updated. When material changes are made, the “Last updated” date above will be adjusted.
+          </p>
+
+          <h2>10. Contact</h2>
+          <p>
+            If you have questions about this policy, you can contact the site owner using the contact details
+            associated with the domain or any email address listed on the site.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> GiftPicks AI. Some links may be affiliate links; pricing and availability can change at any time.
+          </div>
+          <div class="footer-links">
+            <a href="/about.html">About</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 
   <script>
