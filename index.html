@@ -7,18 +7,14 @@
   <meta name="description" content="GiftPicks AI helps you find thoughtful gift ideas in seconds. Tell us who you're shopping for, your budget, and their interests—get tailored gift suggestions with direct shopping links." />
 
   <link rel="canonical" href="https://giftpicksai.com/" />
-
-  <!-- Favicon (you can swap this later for a PNG export of the logo) -->
   <link rel="icon" type="image/svg+xml" href="/logo-giftpicksai.svg" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="GiftPicks AI | Find the Perfect Gift in Seconds" />
   <meta property="og:description" content="Use AI to get personalized gift ideas based on age, interests, and budget." />
   <meta property="og:url" content="https://giftpicksai.com/" />
   <meta property="og:image" content="https://giftpicksai.com/og-image.png" />
 
-  <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -96,12 +92,13 @@
 
     .brand-logo {
       display: block;
-      height: 32px;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18));
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 800px) {
       .brand-logo {
-        height: 36px;
+        height: 44px;
       }
     }
 
@@ -152,7 +149,7 @@
     .hero-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,244,255,0.95));
       border-radius: 24px;
-      padding: 22px;
+      padding: 22px 22px 22px;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(255,255,255,0.9);
     }
@@ -640,7 +637,6 @@
 
     <main>
       <div class="layout">
-        <!-- LEFT: HERO + FORM -->
         <section class="hero-card" id="how-it-works">
           <div class="hero-eyebrow">
             <span class="hero-dot"></span>
@@ -785,7 +781,6 @@
           </form>
         </section>
 
-        <!-- RIGHT: RESULTS + FAQ -->
         <section class="results-shell">
           <div class="results-card" aria-live="polite">
             <div class="results-header">
@@ -971,6 +966,7 @@ Important:
         const link = document.createElement('a');
         link.className = 'gift-link';
         const searchTerm = encodeURIComponent(gift.amazonSearchTerm || gift.title || 'gift idea');
+        // Replace YOUR_AMAZON_TAG with your real tag
         link.href = `https://www.amazon.com/s?k=${searchTerm}&tag=YOUR_AMAZON_TAG`;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
