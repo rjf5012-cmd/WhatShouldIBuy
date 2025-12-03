@@ -2,18 +2,29 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://giftpicksai.com/</loc>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://giftpicksai.com/about.html</loc>
-    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/faq.html</loc>
   </url>
   <url>
     <loc>https://giftpicksai.com/privacy.html</loc>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://giftpicksai.com/terms.html</loc>
-    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/gift-ideas-for-dad.html</loc>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/gift-ideas-for-coworkers.html</loc>
+  </url>
+  <url>
+    <loc>https://giftpicksai.com/last-minute-gift-ideas.html</loc>
   </url>
 </urlset>
